@@ -1,0 +1,1088 @@
+{
+  "dataset": {
+    "name": "SDFVD (Small-scale Deepfake Forgery Video Dataset) \u2014 Expanded Controlled Cohort",
+    "manifest_version": "2.0.0",
+    "role": "controlled_out_of_domain_validation",
+    "total_samples": 26,
+    "category_counts": {
+      "human": 10,
+      "manipulated": 10,
+      "transformed": 6
+    },
+    "evaluated_count": 26,
+    "unavailable_count": 0
+  },
+  "detectors": [
+    {
+      "name": "VideoMAE",
+      "repository": "Vansh180/VideoMae-ffc23-deepfake-detector",
+      "revision": "ea26518b527d938d66e568c52bcf1c19a86cf295",
+      "architecture": "VideoMAEForVideoClassification",
+      "safetensors_sha256": "293c668a5d3289d3162902d8cac6687cd11551cf2358768bad126de32b6d7f29",
+      "score_representation": "uncalibrated_probability_fake_class",
+      "decision_rule": "model_class_selection",
+      "observations": {
+        "known_human_total": 10,
+        "known_human_agreed": 0,
+        "known_human_disagreed": 10,
+        "known_manipulated_total": 10,
+        "known_manipulated_agreed": 9,
+        "known_manipulated_disagreed": 1
+      }
+    },
+    {
+      "name": "RealForensics",
+      "repository": "ahaliassos/RealForensics",
+      "revision": "a53e849407d2fd5be0f0a7eb3df7d1a846b5b803",
+      "architecture": "csn_r101 + MeanLinear (norm_linear=True, scale=64.0)",
+      "checkpoint": "realforensics_ff.pth",
+      "checkpoint_sha256": "843b86f29fc98c67132a6f98180a35bfc617882a32642b8b80d571944c2e032d",
+      "score_representation": "uncalibrated_scalar_logit",
+      "decision_rule": "scalar_logit_sign (z > 0 -> manipulated, z <= 0 -> human)",
+      "observations": {
+        "known_human_total": 10,
+        "known_human_agreed": 4,
+        "known_human_disagreed": 6,
+        "known_manipulated_total": 10,
+        "known_manipulated_agreed": 8,
+        "known_manipulated_disagreed": 2
+      }
+    }
+  ],
+  "results": [
+    {
+      "sample_id": "sdfvd_v1",
+      "filename": "v1.mp4",
+      "category": "human",
+      "known_category": "human",
+      "parent_category": null,
+      "source_video_filename": null,
+      "transformation_type": null,
+      "sha256": "d4f6698fee42469f1aef6b190a36172e4b780ad27d4ca462a2bb966f226e9e45",
+      "file_size_bytes": 1606817,
+      "resolution": "1280x720",
+      "fps": 30.0,
+      "frame_count": 81,
+      "duration_seconds": 2.7,
+      "videomae": {
+        "status": "evaluated",
+        "fake_score": 0.748156,
+        "real_score": 0.251844,
+        "selected_class": "fake",
+        "normalized_class": "manipulated",
+        "category_relationship": "model_category_disagreement",
+        "warning": null,
+        "runtime_seconds": 21.139
+      },
+      "realforensics": {
+        "status": "evaluated",
+        "uncalibrated_logit": -4.134709,
+        "selected_class": "human",
+        "category_relationship": "model_category_agreement",
+        "warning": null,
+        "runtime_seconds": 20.853
+      },
+      "dual_model_relationship": "models_disagree",
+      "total_runtime_seconds": 41.992
+    },
+    {
+      "sample_id": "sdfvd_v2",
+      "filename": "v2.mp4",
+      "category": "human",
+      "known_category": "human",
+      "parent_category": null,
+      "source_video_filename": null,
+      "transformation_type": null,
+      "sha256": "f53c36e8b625be9d3c059a3c4ff1c5329eea677d121a5f6a14a544013499b684",
+      "file_size_bytes": 1263411,
+      "resolution": "1280x720",
+      "fps": 30.0,
+      "frame_count": 100,
+      "duration_seconds": 3.33,
+      "videomae": {
+        "status": "evaluated",
+        "fake_score": 0.859516,
+        "real_score": 0.140484,
+        "selected_class": "fake",
+        "normalized_class": "manipulated",
+        "category_relationship": "model_category_disagreement",
+        "warning": null,
+        "runtime_seconds": 20.205
+      },
+      "realforensics": {
+        "status": "evaluated",
+        "uncalibrated_logit": 1.244068,
+        "selected_class": "manipulated",
+        "category_relationship": "model_category_disagreement",
+        "warning": null,
+        "runtime_seconds": 20.187
+      },
+      "dual_model_relationship": "both_disagree_with_known_category",
+      "total_runtime_seconds": 40.392
+    },
+    {
+      "sample_id": "sdfvd_v3",
+      "filename": "v3.mp4",
+      "category": "human",
+      "known_category": "human",
+      "parent_category": null,
+      "source_video_filename": null,
+      "transformation_type": null,
+      "sha256": "26680561f761e24c01553ecb38041ac348e8249361850cbc77d014eee97ed027",
+      "file_size_bytes": 602433,
+      "resolution": "378x720",
+      "fps": 30.0,
+      "frame_count": 120,
+      "duration_seconds": 4.0,
+      "videomae": {
+        "status": "evaluated",
+        "fake_score": 0.921623,
+        "real_score": 0.078377,
+        "selected_class": "fake",
+        "normalized_class": "manipulated",
+        "category_relationship": "model_category_disagreement",
+        "warning": null,
+        "runtime_seconds": 17.158
+      },
+      "realforensics": {
+        "status": "evaluated",
+        "uncalibrated_logit": -2.517914,
+        "selected_class": "human",
+        "category_relationship": "model_category_agreement",
+        "warning": null,
+        "runtime_seconds": 20.16
+      },
+      "dual_model_relationship": "models_disagree",
+      "total_runtime_seconds": 37.318
+    },
+    {
+      "sample_id": "sdfvd_v4",
+      "filename": "v4.mp4",
+      "category": "human",
+      "known_category": "human",
+      "parent_category": null,
+      "source_video_filename": null,
+      "transformation_type": null,
+      "sha256": "f02247541d033f06db8c249bcc6f276d366738ebee351ea6cdd39b9092ae7b4c",
+      "file_size_bytes": 1820035,
+      "resolution": "1280x674",
+      "fps": 30.0,
+      "frame_count": 94,
+      "duration_seconds": 3.13,
+      "videomae": {
+        "status": "evaluated",
+        "fake_score": 0.522361,
+        "real_score": 0.477639,
+        "selected_class": "fake",
+        "normalized_class": "manipulated",
+        "category_relationship": "model_category_disagreement",
+        "warning": null,
+        "runtime_seconds": 21.986
+      },
+      "realforensics": {
+        "status": "evaluated",
+        "uncalibrated_logit": -2.71734,
+        "selected_class": "human",
+        "category_relationship": "model_category_agreement",
+        "warning": null,
+        "runtime_seconds": 21.708
+      },
+      "dual_model_relationship": "models_disagree",
+      "total_runtime_seconds": 43.694
+    },
+    {
+      "sample_id": "sdfvd_v5",
+      "filename": "v5.mp4",
+      "category": "human",
+      "known_category": "human",
+      "parent_category": null,
+      "source_video_filename": null,
+      "transformation_type": null,
+      "sha256": "edb0b8dae0c76be6f4f6d57e50dcec294c41fec06e96051c2eba54371c67c629",
+      "file_size_bytes": 1692096,
+      "resolution": "1280x720",
+      "fps": 30.0,
+      "frame_count": 116,
+      "duration_seconds": 3.87,
+      "videomae": {
+        "status": "evaluated",
+        "fake_score": 0.634822,
+        "real_score": 0.365178,
+        "selected_class": "fake",
+        "normalized_class": "manipulated",
+        "category_relationship": "model_category_disagreement",
+        "warning": null,
+        "runtime_seconds": 24.597
+      },
+      "realforensics": {
+        "status": "evaluated",
+        "uncalibrated_logit": 1.97476,
+        "selected_class": "manipulated",
+        "category_relationship": "model_category_disagreement",
+        "warning": null,
+        "runtime_seconds": 22.99
+      },
+      "dual_model_relationship": "both_disagree_with_known_category",
+      "total_runtime_seconds": 47.587
+    },
+    {
+      "sample_id": "sdfvd_v6",
+      "filename": "v6.mp4",
+      "category": "human",
+      "known_category": "human",
+      "parent_category": null,
+      "source_video_filename": null,
+      "transformation_type": null,
+      "sha256": "8acb9b2b0204100396150b9b293c98df7a4a51283f68ef21daa3d314b003a3bd",
+      "file_size_bytes": 2024337,
+      "resolution": "1280x720",
+      "fps": 30.0,
+      "frame_count": 80,
+      "duration_seconds": 2.67,
+      "videomae": {
+        "status": "evaluated",
+        "fake_score": 0.857602,
+        "real_score": 0.142398,
+        "selected_class": "fake",
+        "normalized_class": "manipulated",
+        "category_relationship": "model_category_disagreement",
+        "warning": null,
+        "runtime_seconds": 18.526
+      },
+      "realforensics": {
+        "status": "evaluated",
+        "uncalibrated_logit": 1.811321,
+        "selected_class": "manipulated",
+        "category_relationship": "model_category_disagreement",
+        "warning": null,
+        "runtime_seconds": 20.54
+      },
+      "dual_model_relationship": "both_disagree_with_known_category",
+      "total_runtime_seconds": 39.066
+    },
+    {
+      "sample_id": "sdfvd_v7",
+      "filename": "v7.mp4",
+      "category": "human",
+      "known_category": "human",
+      "parent_category": null,
+      "source_video_filename": null,
+      "transformation_type": null,
+      "sha256": "c7b582d8119ca4f7c0f4c0d57dde10d6e07f5221a6718023cd391025c7eceaf8",
+      "file_size_bytes": 1166171,
+      "resolution": "1280x674",
+      "fps": 30.0,
+      "frame_count": 94,
+      "duration_seconds": 3.13,
+      "videomae": {
+        "status": "evaluated",
+        "fake_score": 0.93408,
+        "real_score": 0.06592,
+        "selected_class": "fake",
+        "normalized_class": "manipulated",
+        "category_relationship": "model_category_disagreement",
+        "warning": null,
+        "runtime_seconds": 18.94
+      },
+      "realforensics": {
+        "status": "evaluated",
+        "uncalibrated_logit": -0.200772,
+        "selected_class": "human",
+        "category_relationship": "model_category_agreement",
+        "warning": null,
+        "runtime_seconds": 22.256
+      },
+      "dual_model_relationship": "models_disagree",
+      "total_runtime_seconds": 41.196
+    },
+    {
+      "sample_id": "sdfvd_v8",
+      "filename": "v8.mp4",
+      "category": "human",
+      "known_category": "human",
+      "parent_category": null,
+      "source_video_filename": null,
+      "transformation_type": null,
+      "sha256": "e67f922b7c29414e2281736ad32e7b0e94096a7b6b99d882cd967b29957d5e9a",
+      "file_size_bytes": 1159515,
+      "resolution": "404x720",
+      "fps": 30.0,
+      "frame_count": 78,
+      "duration_seconds": 2.6,
+      "videomae": {
+        "status": "evaluated",
+        "fake_score": 0.966256,
+        "real_score": 0.033744,
+        "selected_class": "fake",
+        "normalized_class": "manipulated",
+        "category_relationship": "model_category_disagreement",
+        "warning": null,
+        "runtime_seconds": 19.705
+      },
+      "realforensics": {
+        "status": "evaluated",
+        "uncalibrated_logit": 5.34458,
+        "selected_class": "manipulated",
+        "category_relationship": "model_category_disagreement",
+        "warning": null,
+        "runtime_seconds": 19.39
+      },
+      "dual_model_relationship": "both_disagree_with_known_category",
+      "total_runtime_seconds": 39.095
+    },
+    {
+      "sample_id": "sdfvd_v9",
+      "filename": "v9.mp4",
+      "category": "human",
+      "known_category": "human",
+      "parent_category": null,
+      "source_video_filename": null,
+      "transformation_type": null,
+      "sha256": "70a170312ee0019b59ae63066e21999ea5ab77e9672c4c851e9f0896a0cdb037",
+      "file_size_bytes": 3682683,
+      "resolution": "1280x720",
+      "fps": 30.0,
+      "frame_count": 115,
+      "duration_seconds": 3.83,
+      "videomae": {
+        "status": "evaluated",
+        "fake_score": 0.792415,
+        "real_score": 0.207585,
+        "selected_class": "fake",
+        "normalized_class": "manipulated",
+        "category_relationship": "model_category_disagreement",
+        "warning": null,
+        "runtime_seconds": 17.771
+      },
+      "realforensics": {
+        "status": "evaluated",
+        "uncalibrated_logit": 0.500452,
+        "selected_class": "manipulated",
+        "category_relationship": "model_category_disagreement",
+        "warning": null,
+        "runtime_seconds": 20.328
+      },
+      "dual_model_relationship": "both_disagree_with_known_category",
+      "total_runtime_seconds": 38.099
+    },
+    {
+      "sample_id": "sdfvd_v10",
+      "filename": "v10.mp4",
+      "category": "human",
+      "known_category": "human",
+      "parent_category": null,
+      "source_video_filename": null,
+      "transformation_type": null,
+      "sha256": "6602229e77d04dd1325910a0322dfb7164fe09f64d31fb308200686be3bc2247",
+      "file_size_bytes": 783662,
+      "resolution": "378x720",
+      "fps": 30.0,
+      "frame_count": 109,
+      "duration_seconds": 3.63,
+      "videomae": {
+        "status": "evaluated",
+        "fake_score": 0.943645,
+        "real_score": 0.056355,
+        "selected_class": "fake",
+        "normalized_class": "manipulated",
+        "category_relationship": "model_category_disagreement",
+        "warning": null,
+        "runtime_seconds": 26.802
+      },
+      "realforensics": {
+        "status": "evaluated",
+        "uncalibrated_logit": 5.330932,
+        "selected_class": "manipulated",
+        "category_relationship": "model_category_disagreement",
+        "warning": null,
+        "runtime_seconds": 22.459
+      },
+      "dual_model_relationship": "both_disagree_with_known_category",
+      "total_runtime_seconds": 49.261
+    },
+    {
+      "sample_id": "sdfvd_vs1",
+      "filename": "vs1.mp4",
+      "category": "manipulated",
+      "known_category": "manipulated",
+      "parent_category": null,
+      "source_video_filename": null,
+      "transformation_type": null,
+      "sha256": "40544991df2a24de97ef7271b2774d462afa7147196856f3b423786960764eaa",
+      "file_size_bytes": 1373195,
+      "resolution": "1280x720",
+      "fps": 30.0,
+      "frame_count": 82,
+      "duration_seconds": 2.73,
+      "videomae": {
+        "status": "evaluated",
+        "fake_score": 0.811546,
+        "real_score": 0.188454,
+        "selected_class": "fake",
+        "normalized_class": "manipulated",
+        "category_relationship": "model_category_agreement",
+        "warning": null,
+        "runtime_seconds": 22.313
+      },
+      "realforensics": {
+        "status": "evaluated",
+        "uncalibrated_logit": 1.994186,
+        "selected_class": "manipulated",
+        "category_relationship": "model_category_agreement",
+        "warning": null,
+        "runtime_seconds": 22.714
+      },
+      "dual_model_relationship": "both_agree_with_known_category",
+      "total_runtime_seconds": 45.027
+    },
+    {
+      "sample_id": "sdfvd_vs2",
+      "filename": "vs2.mp4",
+      "category": "manipulated",
+      "known_category": "manipulated",
+      "parent_category": null,
+      "source_video_filename": null,
+      "transformation_type": null,
+      "sha256": "a2feff0ec068651cf9c8c3c49ce3dbfa4aaa58ca355236782f06632dd49368a0",
+      "file_size_bytes": 1208506,
+      "resolution": "1280x720",
+      "fps": 30.0,
+      "frame_count": 100,
+      "duration_seconds": 3.33,
+      "videomae": {
+        "status": "evaluated",
+        "fake_score": 0.898381,
+        "real_score": 0.101619,
+        "selected_class": "fake",
+        "normalized_class": "manipulated",
+        "category_relationship": "model_category_agreement",
+        "warning": null,
+        "runtime_seconds": 21.363
+      },
+      "realforensics": {
+        "status": "evaluated",
+        "uncalibrated_logit": 5.38255,
+        "selected_class": "manipulated",
+        "category_relationship": "model_category_agreement",
+        "warning": null,
+        "runtime_seconds": 21.64
+      },
+      "dual_model_relationship": "both_agree_with_known_category",
+      "total_runtime_seconds": 43.003
+    },
+    {
+      "sample_id": "sdfvd_vs3",
+      "filename": "vs3.mp4",
+      "category": "manipulated",
+      "known_category": "manipulated",
+      "parent_category": null,
+      "source_video_filename": null,
+      "transformation_type": null,
+      "sha256": "f189db47c5bd22ee83148ada99b70a12dc9759f329571285d36f830973ee3d3f",
+      "file_size_bytes": 514617,
+      "resolution": "378x720",
+      "fps": 30.0,
+      "frame_count": 120,
+      "duration_seconds": 4.0,
+      "videomae": {
+        "status": "evaluated",
+        "fake_score": 0.906356,
+        "real_score": 0.093644,
+        "selected_class": "fake",
+        "normalized_class": "manipulated",
+        "category_relationship": "model_category_agreement",
+        "warning": null,
+        "runtime_seconds": 18.841
+      },
+      "realforensics": {
+        "status": "evaluated",
+        "uncalibrated_logit": -0.85732,
+        "selected_class": "human",
+        "category_relationship": "model_category_disagreement",
+        "warning": null,
+        "runtime_seconds": 20.212
+      },
+      "dual_model_relationship": "models_disagree",
+      "total_runtime_seconds": 39.053
+    },
+    {
+      "sample_id": "sdfvd_vs4",
+      "filename": "vs4.mp4",
+      "category": "manipulated",
+      "known_category": "manipulated",
+      "parent_category": null,
+      "source_video_filename": null,
+      "transformation_type": null,
+      "sha256": "8e15bfcd2e08080bcbb41fc9c886cdc9890520673c3b5bd4f26e7de415d83239",
+      "file_size_bytes": 1457308,
+      "resolution": "1280x674",
+      "fps": 30.0,
+      "frame_count": 94,
+      "duration_seconds": 3.13,
+      "videomae": {
+        "status": "evaluated",
+        "fake_score": 0.480132,
+        "real_score": 0.519868,
+        "selected_class": "real",
+        "normalized_class": "human",
+        "category_relationship": "model_category_disagreement",
+        "warning": null,
+        "runtime_seconds": 18.127
+      },
+      "realforensics": {
+        "status": "evaluated",
+        "uncalibrated_logit": 2.798582,
+        "selected_class": "manipulated",
+        "category_relationship": "model_category_agreement",
+        "warning": null,
+        "runtime_seconds": 20.742
+      },
+      "dual_model_relationship": "models_disagree",
+      "total_runtime_seconds": 38.869
+    },
+    {
+      "sample_id": "sdfvd_vs5",
+      "filename": "vs5.mp4",
+      "category": "manipulated",
+      "known_category": "manipulated",
+      "parent_category": null,
+      "source_video_filename": null,
+      "transformation_type": null,
+      "sha256": "889ad30b712917fd99cfd240fd64f0152db16296dda33e4b9f940674a321c9dd",
+      "file_size_bytes": 1297364,
+      "resolution": "1280x720",
+      "fps": 30.0,
+      "frame_count": 116,
+      "duration_seconds": 3.87,
+      "videomae": {
+        "status": "evaluated",
+        "fake_score": 0.709354,
+        "real_score": 0.290646,
+        "selected_class": "fake",
+        "normalized_class": "manipulated",
+        "category_relationship": "model_category_agreement",
+        "warning": null,
+        "runtime_seconds": 18.518
+      },
+      "realforensics": {
+        "status": "evaluated",
+        "uncalibrated_logit": 9.572799,
+        "selected_class": "manipulated",
+        "category_relationship": "model_category_agreement",
+        "warning": null,
+        "runtime_seconds": 21.314
+      },
+      "dual_model_relationship": "both_agree_with_known_category",
+      "total_runtime_seconds": 39.832
+    },
+    {
+      "sample_id": "sdfvd_vs6",
+      "filename": "vs6.mp4",
+      "category": "manipulated",
+      "known_category": "manipulated",
+      "parent_category": null,
+      "source_video_filename": null,
+      "transformation_type": null,
+      "sha256": "be532b966dad9fe356cd0012826ddde849f921a7382d99584c25750beafa400e",
+      "file_size_bytes": 1637001,
+      "resolution": "1280x720",
+      "fps": 30.0,
+      "frame_count": 81,
+      "duration_seconds": 2.7,
+      "videomae": {
+        "status": "evaluated",
+        "fake_score": 0.902969,
+        "real_score": 0.097031,
+        "selected_class": "fake",
+        "normalized_class": "manipulated",
+        "category_relationship": "model_category_agreement",
+        "warning": null,
+        "runtime_seconds": 19.953
+      },
+      "realforensics": {
+        "status": "evaluated",
+        "uncalibrated_logit": 1.76137,
+        "selected_class": "manipulated",
+        "category_relationship": "model_category_agreement",
+        "warning": null,
+        "runtime_seconds": 21.594
+      },
+      "dual_model_relationship": "both_agree_with_known_category",
+      "total_runtime_seconds": 41.547
+    },
+    {
+      "sample_id": "sdfvd_vs7",
+      "filename": "vs7.mp4",
+      "category": "manipulated",
+      "known_category": "manipulated",
+      "parent_category": null,
+      "source_video_filename": null,
+      "transformation_type": null,
+      "sha256": "28309043205b49bd9ae71a0b17e1cbb9592d88a003b18c3ccaa1920df154ab9f",
+      "file_size_bytes": 968925,
+      "resolution": "1280x674",
+      "fps": 30.0,
+      "frame_count": 94,
+      "duration_seconds": 3.13,
+      "videomae": {
+        "status": "evaluated",
+        "fake_score": 0.941677,
+        "real_score": 0.058323,
+        "selected_class": "fake",
+        "normalized_class": "manipulated",
+        "category_relationship": "model_category_agreement",
+        "warning": null,
+        "runtime_seconds": 21.001
+      },
+      "realforensics": {
+        "status": "evaluated",
+        "uncalibrated_logit": 7.240573,
+        "selected_class": "manipulated",
+        "category_relationship": "model_category_agreement",
+        "warning": null,
+        "runtime_seconds": 19.987
+      },
+      "dual_model_relationship": "both_agree_with_known_category",
+      "total_runtime_seconds": 40.988
+    },
+    {
+      "sample_id": "sdfvd_vs8",
+      "filename": "vs8.mp4",
+      "category": "manipulated",
+      "known_category": "manipulated",
+      "parent_category": null,
+      "source_video_filename": null,
+      "transformation_type": null,
+      "sha256": "4c461131d6bc8ade7ac968b7d43253672a9403eede95c6fff034dc45f2443a69",
+      "file_size_bytes": 903799,
+      "resolution": "404x720",
+      "fps": 30.0,
+      "frame_count": 79,
+      "duration_seconds": 2.63,
+      "videomae": {
+        "status": "evaluated",
+        "fake_score": 0.925132,
+        "real_score": 0.074868,
+        "selected_class": "fake",
+        "normalized_class": "manipulated",
+        "category_relationship": "model_category_agreement",
+        "warning": null,
+        "runtime_seconds": 20.366
+      },
+      "realforensics": {
+        "status": "evaluated",
+        "uncalibrated_logit": 5.618902,
+        "selected_class": "manipulated",
+        "category_relationship": "model_category_agreement",
+        "warning": null,
+        "runtime_seconds": 20.063
+      },
+      "dual_model_relationship": "both_agree_with_known_category",
+      "total_runtime_seconds": 40.429
+    },
+    {
+      "sample_id": "sdfvd_vs9",
+      "filename": "vs9.mp4",
+      "category": "manipulated",
+      "known_category": "manipulated",
+      "parent_category": null,
+      "source_video_filename": null,
+      "transformation_type": null,
+      "sha256": "4c7d13c4b245101520c718d6ef2fbc20c7fc705c5a84c68b28d0e719c40c1bef",
+      "file_size_bytes": 2321475,
+      "resolution": "1280x720",
+      "fps": 30.0,
+      "frame_count": 115,
+      "duration_seconds": 3.83,
+      "videomae": {
+        "status": "evaluated",
+        "fake_score": 0.812137,
+        "real_score": 0.187863,
+        "selected_class": "fake",
+        "normalized_class": "manipulated",
+        "category_relationship": "model_category_agreement",
+        "warning": null,
+        "runtime_seconds": 18.593
+      },
+      "realforensics": {
+        "status": "evaluated",
+        "uncalibrated_logit": -0.082204,
+        "selected_class": "human",
+        "category_relationship": "model_category_disagreement",
+        "warning": null,
+        "runtime_seconds": 20.4
+      },
+      "dual_model_relationship": "models_disagree",
+      "total_runtime_seconds": 38.993
+    },
+    {
+      "sample_id": "sdfvd_vs10",
+      "filename": "vs10.mp4",
+      "category": "manipulated",
+      "known_category": "manipulated",
+      "parent_category": null,
+      "source_video_filename": null,
+      "transformation_type": null,
+      "sha256": "9c813f4fa06c4590f8dd10e68e7a7ce5abb837cf66415758ed2130ca1ea9612c",
+      "file_size_bytes": 697960,
+      "resolution": "378x720",
+      "fps": 30.0,
+      "frame_count": 110,
+      "duration_seconds": 3.67,
+      "videomae": {
+        "status": "evaluated",
+        "fake_score": 0.965799,
+        "real_score": 0.034201,
+        "selected_class": "fake",
+        "normalized_class": "manipulated",
+        "category_relationship": "model_category_agreement",
+        "warning": null,
+        "runtime_seconds": 20.721
+      },
+      "realforensics": {
+        "status": "evaluated",
+        "uncalibrated_logit": 8.099466,
+        "selected_class": "manipulated",
+        "category_relationship": "model_category_agreement",
+        "warning": null,
+        "runtime_seconds": 20.089
+      },
+      "dual_model_relationship": "both_agree_with_known_category",
+      "total_runtime_seconds": 40.81
+    },
+    {
+      "sample_id": "sdfvd_v1_resize50",
+      "filename": "v1_resize50.mp4",
+      "category": "transformed",
+      "known_category": "transformed",
+      "parent_category": "human",
+      "source_video_filename": "v1.mp4",
+      "transformation_type": "spatial_downscale_50pct",
+      "sha256": "d3c104b5664976968ee2536073bcc33eda3b2bfc88df3603d3cc34c7778792f7",
+      "file_size_bytes": 489560,
+      "resolution": "640x360",
+      "fps": 30.0,
+      "frame_count": 81,
+      "duration_seconds": 2.7,
+      "videomae": {
+        "status": "evaluated",
+        "fake_score": 0.740396,
+        "real_score": 0.259604,
+        "selected_class": "fake",
+        "normalized_class": "manipulated",
+        "category_relationship": "transformation_sensitivity_observed",
+        "warning": null,
+        "runtime_seconds": 19.84
+      },
+      "realforensics": {
+        "status": "evaluated",
+        "uncalibrated_logit": -4.761127,
+        "selected_class": "human",
+        "category_relationship": "transformation_sensitivity_observed",
+        "warning": null,
+        "runtime_seconds": 19.32
+      },
+      "dual_model_relationship": "evaluated_derivative",
+      "total_runtime_seconds": 39.16
+    },
+    {
+      "sample_id": "sdfvd_v1_resize75",
+      "filename": "v1_resize75.mp4",
+      "category": "transformed",
+      "known_category": "transformed",
+      "parent_category": "human",
+      "source_video_filename": "v1.mp4",
+      "transformation_type": "spatial_downscale_75pct",
+      "sha256": "ddc997781309460a54cbeebc5de7b8ea43381d79d9a0a6eb9928d325d84060d7",
+      "file_size_bytes": 754717,
+      "resolution": "960x540",
+      "fps": 30.0,
+      "frame_count": 81,
+      "duration_seconds": 2.7,
+      "videomae": {
+        "status": "evaluated",
+        "fake_score": 0.767174,
+        "real_score": 0.232826,
+        "selected_class": "fake",
+        "normalized_class": "manipulated",
+        "category_relationship": "transformation_sensitivity_observed",
+        "warning": null,
+        "runtime_seconds": 21.375
+      },
+      "realforensics": {
+        "status": "evaluated",
+        "uncalibrated_logit": -5.049084,
+        "selected_class": "human",
+        "category_relationship": "transformation_sensitivity_observed",
+        "warning": null,
+        "runtime_seconds": 20.519
+      },
+      "dual_model_relationship": "evaluated_derivative",
+      "total_runtime_seconds": 41.894
+    },
+    {
+      "sample_id": "sdfvd_v2_resize50",
+      "filename": "v2_resize50.mp4",
+      "category": "transformed",
+      "known_category": "transformed",
+      "parent_category": "human",
+      "source_video_filename": "v2.mp4",
+      "transformation_type": "spatial_downscale_50pct",
+      "sha256": "c6d005d6ab51bafc06a235134aa949224d23503ea36e1f05c6be1cca4abc2425",
+      "file_size_bytes": 456541,
+      "resolution": "640x360",
+      "fps": 30.0,
+      "frame_count": 100,
+      "duration_seconds": 3.33,
+      "videomae": {
+        "status": "evaluated",
+        "fake_score": 0.887924,
+        "real_score": 0.112076,
+        "selected_class": "fake",
+        "normalized_class": "manipulated",
+        "category_relationship": "transformation_sensitivity_observed",
+        "warning": null,
+        "runtime_seconds": 18.671
+      },
+      "realforensics": {
+        "status": "evaluated",
+        "uncalibrated_logit": 2.234217,
+        "selected_class": "manipulated",
+        "category_relationship": "transformation_sensitivity_observed",
+        "warning": null,
+        "runtime_seconds": 22.621
+      },
+      "dual_model_relationship": "evaluated_derivative",
+      "total_runtime_seconds": 41.292
+    },
+    {
+      "sample_id": "sdfvd_vs1_resize50",
+      "filename": "vs1_resize50.mp4",
+      "category": "transformed",
+      "known_category": "transformed",
+      "parent_category": "manipulated",
+      "source_video_filename": "vs1.mp4",
+      "transformation_type": "spatial_downscale_50pct",
+      "sha256": "63e092fe27001b6792fb2a575be166c105f2dceeadada581fb9f8c928e9cc8cb",
+      "file_size_bytes": 472566,
+      "resolution": "640x360",
+      "fps": 30.0,
+      "frame_count": 82,
+      "duration_seconds": 2.73,
+      "videomae": {
+        "status": "evaluated",
+        "fake_score": 0.823421,
+        "real_score": 0.176579,
+        "selected_class": "fake",
+        "normalized_class": "manipulated",
+        "category_relationship": "transformation_sensitivity_observed",
+        "warning": null,
+        "runtime_seconds": 30.964
+      },
+      "realforensics": {
+        "status": "evaluated",
+        "uncalibrated_logit": 3.140863,
+        "selected_class": "manipulated",
+        "category_relationship": "transformation_sensitivity_observed",
+        "warning": null,
+        "runtime_seconds": 20.538
+      },
+      "dual_model_relationship": "evaluated_derivative",
+      "total_runtime_seconds": 51.502
+    },
+    {
+      "sample_id": "sdfvd_vs1_resize75",
+      "filename": "vs1_resize75.mp4",
+      "category": "transformed",
+      "known_category": "transformed",
+      "parent_category": "manipulated",
+      "source_video_filename": "vs1.mp4",
+      "transformation_type": "spatial_downscale_75pct",
+      "sha256": "24d8c4b248402bc65493a19933bd2fa20fb04344e98272ee68a92215e9389202",
+      "file_size_bytes": 743432,
+      "resolution": "960x540",
+      "fps": 30.0,
+      "frame_count": 82,
+      "duration_seconds": 2.73,
+      "videomae": {
+        "status": "evaluated",
+        "fake_score": 0.813023,
+        "real_score": 0.186977,
+        "selected_class": "fake",
+        "normalized_class": "manipulated",
+        "category_relationship": "transformation_sensitivity_observed",
+        "warning": null,
+        "runtime_seconds": 19.777
+      },
+      "realforensics": {
+        "status": "evaluated",
+        "uncalibrated_logit": 0.429475,
+        "selected_class": "manipulated",
+        "category_relationship": "transformation_sensitivity_observed",
+        "warning": null,
+        "runtime_seconds": 26.654
+      },
+      "dual_model_relationship": "evaluated_derivative",
+      "total_runtime_seconds": 46.431
+    },
+    {
+      "sample_id": "sdfvd_vs2_resize50",
+      "filename": "vs2_resize50.mp4",
+      "category": "transformed",
+      "known_category": "transformed",
+      "parent_category": "manipulated",
+      "source_video_filename": "vs2.mp4",
+      "transformation_type": "spatial_downscale_50pct",
+      "sha256": "ed9a68a0bc5a150c45d593a3b81baec11a2e0399ab7c4c5e0ed0be4a08642521",
+      "file_size_bytes": 455384,
+      "resolution": "640x360",
+      "fps": 30.0,
+      "frame_count": 100,
+      "duration_seconds": 3.33,
+      "videomae": {
+        "status": "evaluated",
+        "fake_score": 0.915516,
+        "real_score": 0.084484,
+        "selected_class": "fake",
+        "normalized_class": "manipulated",
+        "category_relationship": "transformation_sensitivity_observed",
+        "warning": null,
+        "runtime_seconds": 19.557
+      },
+      "realforensics": {
+        "status": "evaluated",
+        "uncalibrated_logit": 1.129035,
+        "selected_class": "manipulated",
+        "category_relationship": "transformation_sensitivity_observed",
+        "warning": null,
+        "runtime_seconds": 19.866
+      },
+      "dual_model_relationship": "evaluated_derivative",
+      "total_runtime_seconds": 39.423
+    }
+  ],
+  "comparative_observations": {
+    "both_agree_with_known_category": 7,
+    "both_disagree_with_known_category": 6,
+    "models_disagree": 7,
+    "evaluated_derivative": 6,
+    "total_primary_samples": 20
+  },
+  "transformation_sensitivity": [
+    {
+      "derivative_filename": "v1_resize50.mp4",
+      "parent_filename": "v1.mp4",
+      "parent_category": "human",
+      "transformation_type": "spatial_downscale_50pct",
+      "videomae": {
+        "parent_score": 0.748156,
+        "derivative_score": 0.740396,
+        "score_delta": -0.00776,
+        "class_preserved": true
+      },
+      "realforensics": {
+        "parent_logit": -4.134709,
+        "derivative_logit": -4.761127,
+        "logit_delta": -0.626418,
+        "class_preserved": true
+      }
+    },
+    {
+      "derivative_filename": "v1_resize75.mp4",
+      "parent_filename": "v1.mp4",
+      "parent_category": "human",
+      "transformation_type": "spatial_downscale_75pct",
+      "videomae": {
+        "parent_score": 0.748156,
+        "derivative_score": 0.767174,
+        "score_delta": 0.019018,
+        "class_preserved": true
+      },
+      "realforensics": {
+        "parent_logit": -4.134709,
+        "derivative_logit": -5.049084,
+        "logit_delta": -0.914375,
+        "class_preserved": true
+      }
+    },
+    {
+      "derivative_filename": "v2_resize50.mp4",
+      "parent_filename": "v2.mp4",
+      "parent_category": "human",
+      "transformation_type": "spatial_downscale_50pct",
+      "videomae": {
+        "parent_score": 0.859516,
+        "derivative_score": 0.887924,
+        "score_delta": 0.028408,
+        "class_preserved": true
+      },
+      "realforensics": {
+        "parent_logit": 1.244068,
+        "derivative_logit": 2.234217,
+        "logit_delta": 0.990149,
+        "class_preserved": true
+      }
+    },
+    {
+      "derivative_filename": "vs1_resize50.mp4",
+      "parent_filename": "vs1.mp4",
+      "parent_category": "manipulated",
+      "transformation_type": "spatial_downscale_50pct",
+      "videomae": {
+        "parent_score": 0.811546,
+        "derivative_score": 0.823421,
+        "score_delta": 0.011875,
+        "class_preserved": true
+      },
+      "realforensics": {
+        "parent_logit": 1.994186,
+        "derivative_logit": 3.140863,
+        "logit_delta": 1.146677,
+        "class_preserved": true
+      }
+    },
+    {
+      "derivative_filename": "vs1_resize75.mp4",
+      "parent_filename": "vs1.mp4",
+      "parent_category": "manipulated",
+      "transformation_type": "spatial_downscale_75pct",
+      "videomae": {
+        "parent_score": 0.811546,
+        "derivative_score": 0.813023,
+        "score_delta": 0.001477,
+        "class_preserved": true
+      },
+      "realforensics": {
+        "parent_logit": 1.994186,
+        "derivative_logit": 0.429475,
+        "logit_delta": -1.564711,
+        "class_preserved": true
+      }
+    },
+    {
+      "derivative_filename": "vs2_resize50.mp4",
+      "parent_filename": "vs2.mp4",
+      "parent_category": "manipulated",
+      "transformation_type": "spatial_downscale_50pct",
+      "videomae": {
+        "parent_score": 0.898381,
+        "derivative_score": 0.915516,
+        "score_delta": 0.017135,
+        "class_preserved": true
+      },
+      "realforensics": {
+        "parent_logit": 5.38255,
+        "derivative_logit": 1.129035,
+        "logit_delta": -4.253515,
+        "class_preserved": true
+      }
+    }
+  ],
+  "limitations": [
+    "Controlled descriptive engineering validation on a small out-of-domain sample cohort (SDFVD: Pexels / Remaker AI); NOT a benchmark.",
+    "Raw model scores are uncalibrated (uncalibrated probability for VideoMAE, uncalibrated scalar logit for RealForensics), NOT calibrated real-world probabilities.",
+    "Both models were pretrained on FaceForensics++ C23 and evaluated on SDFVD out-of-domain samples.",
+    "Model agreement does not prove authenticity or manipulation; disagreement does not prove failure.",
+    "Precludes real-world generalization claims."
+  ]
+}

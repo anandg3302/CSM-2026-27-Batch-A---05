@@ -1,0 +1,554 @@
+{
+  "": "https://json-schema.org/draft/2020-12/schema",
+  "application_name": "MediaTrace",
+  "application_version": "1.0.0",
+  "release_candidate_reference": "v1.0.0-rc1",
+  "scope_definition": {
+    "included": [
+      "backend source code (app/**/*.py)",
+      "backend tests (tests/**/*.py)",
+      "backend configuration (requirements.txt, Dockerfile)",
+      "frontend source code (src/**/*.{js,jsx,css})",
+      "frontend configuration (package.json, Dockerfile, vite.config.js, index.html)",
+      "project configuration (.gitignore, .env.example, docker-compose.yml)",
+      "release and forensic documentation (docs/*.md, README.md)"
+    ],
+    "excluded": [
+      "storage/ (runtime uploads, results, reports, local model weights)",
+      "datasets/ (large local media files and video samples)",
+      "node_modules/ & backend/.venv/ (third-party dependency runtimes)",
+      "temporary test run artifacts and python bytecode caches"
+    ]
+  },
+  "total_tracked_files": 132,
+  "files": {
+    "\\.env.example": {
+      "size_bytes": 423,
+      "sha256": "9fbc811022eadeba1ec517f1b6a147a6eb117317c0cfc5e795341827a360f0da"
+    },
+    "\\.gitignore": {
+      "size_bytes": 2294,
+      "sha256": "91b1eed839b040a1782d716792ce9ecb658ab3c572193437bad5534463e92d3e"
+    },
+    "\\README.md": {
+      "size_bytes": 22587,
+      "sha256": "1ba9e66d996c7d89b06cf412e0e732c1b17c200865a3d8c12053f71f1954a71c"
+    },
+    "\\docker-compose.yml": {
+      "size_bytes": 542,
+      "sha256": "202adb9ffc8fc4a150411a2107d9474735ffe449942cb7d25ec9c8957301c191"
+    },
+    "\\.pytest_cache\\.gitignore": {
+      "size_bytes": 39,
+      "sha256": "e7c6bb30148cf667606dcd63e7ca77acaa3cfb0c8303bf09e6419e1e1669dc6d"
+    },
+    "\\.pytest_cache\\README.md": {
+      "size_bytes": 310,
+      "sha256": "420e808d79a6c25d3cda0af33bc4782314a14949866682c68ce8149e89b66b70"
+    },
+    "\\backend\\Dockerfile": {
+      "size_bytes": 609,
+      "sha256": "904dc3fbedfc126e8ca713e8de51b7851b21338386c5762d0e51baec1cba4e5b"
+    },
+    "\\backend\\.pytest_cache\\.gitignore": {
+      "size_bytes": 39,
+      "sha256": "e7c6bb30148cf667606dcd63e7ca77acaa3cfb0c8303bf09e6419e1e1669dc6d"
+    },
+    "\\backend\\.pytest_cache\\README.md": {
+      "size_bytes": 310,
+      "sha256": "420e808d79a6c25d3cda0af33bc4782314a14949866682c68ce8149e89b66b70"
+    },
+    "\\backend\\app\\__init__.py": {
+      "size_bytes": 46,
+      "sha256": "d493d421fd3d1aee7c99558c1cc373a09467e3f86106e7799250078f38fd1b2d"
+    },
+    "\\backend\\app\\main.py": {
+      "size_bytes": 2098,
+      "sha256": "6e895940bb0e4861f21f738c4aec9ad2dbbe7c1ba613e9c86d2001f0ea11d0b6"
+    },
+    "\\backend\\app\\api\\__init__.py": {
+      "size_bytes": 27,
+      "sha256": "6c83e811e3f36d8adec11041fe05b1a2d64a4949e047ab524f8302a828bb4775"
+    },
+    "\\backend\\app\\api\\router.py": {
+      "size_bytes": 1979,
+      "sha256": "a05a487250720e2b33b598694ce4ceaf72cb1dedb1004d754ae83da0aa681d72"
+    },
+    "\\backend\\app\\api\\routes\\__init__.py": {
+      "size_bytes": 29,
+      "sha256": "376a84c25c9519f1a3a4c3374321bfe3d1386f5c49dd53d26195a9be99d9e1ae"
+    },
+    "\\backend\\app\\api\\routes\\analysis.py": {
+      "size_bytes": 1980,
+      "sha256": "61bd7059a15d00dca2582808d449d22d320b1874f13a706cfbe63a74b17d6b57"
+    },
+    "\\backend\\app\\api\\routes\\audio_analysis.py": {
+      "size_bytes": 893,
+      "sha256": "4758c2c023fb5301071fafa9d17c125549fdff758a4c6116d3dacc1e629866cc"
+    },
+    "\\backend\\app\\api\\routes\\comparison.py": {
+      "size_bytes": 1440,
+      "sha256": "610b4b606b05dc57a8588fda2f8ab0fbfc1b7e0837a4e30197d30cab60e5a6a2"
+    },
+    "\\backend\\app\\api\\routes\\document_analysis.py": {
+      "size_bytes": 886,
+      "sha256": "c8a5c73cb3766ed2ade08ddb1e4eab004f9db9941bb5d79e015bb6157c8a4148"
+    },
+    "\\backend\\app\\api\\routes\\evidence.py": {
+      "size_bytes": 749,
+      "sha256": "66c02a1814d3442060a5ffe91a0432b95c1ff582dc7a6e1f20f4420e8e800e86"
+    },
+    "\\backend\\app\\api\\routes\\forensics.py": {
+      "size_bytes": 1904,
+      "sha256": "16f205e901ba93237016bf804b488abee3dbc0a1923ff854405c902e6c119580"
+    },
+    "\\backend\\app\\api\\routes\\history.py": {
+      "size_bytes": 762,
+      "sha256": "bb575d24f8b1b1f5eb52126b4cd11cc284a9a6754e2bc88f3b9ce390bcab02fa"
+    },
+    "\\backend\\app\\api\\routes\\media.py": {
+      "size_bytes": 975,
+      "sha256": "08bc93fbe9c85973466a89cf8cb6c3c2462c0c79c104165f2d551bf78e476256"
+    },
+    "\\backend\\app\\api\\routes\\reports.py": {
+      "size_bytes": 1903,
+      "sha256": "69d2e6fed83c366349aa454ac82092eb7160fcf87cb332eea2cd630d34ac9e58"
+    },
+    "\\backend\\app\\api\\routes\\system.py": {
+      "size_bytes": 569,
+      "sha256": "fc76f02303d9a2e2020a67288a075fe90e2fee32393a6b06e49239bdcec4b161"
+    },
+    "\\backend\\app\\api\\routes\\video_analysis.py": {
+      "size_bytes": 917,
+      "sha256": "b1ff6982d5f434ab385b231d4a8c7d5c1938ded721c5ef4f8a36e8f21b8debe9"
+    },
+    "\\backend\\app\\core\\__init__.py": {
+      "size_bytes": 56,
+      "sha256": "c42948c40b727d2ba1ab1319ab5a743c192f801c1d252b0ab4a79a251ea494da"
+    },
+    "\\backend\\app\\core\\config.py": {
+      "size_bytes": 3411,
+      "sha256": "354ea44aa6fc6e87e167f9b750d28764617fb390d3c7e22026a95e65e9505cca"
+    },
+    "\\backend\\app\\core\\version.py": {
+      "size_bytes": 10228,
+      "sha256": "f71158b6f4111c51f1f88e32f5faa3dfc2734bc15009f324ea5608aaedb7c18c"
+    },
+    "\\backend\\app\\db\\__init__.py": {
+      "size_bytes": 54,
+      "sha256": "27c8468ee650ab60195f6b15e5e01cdd23750a028dca6aa8922dcf8bcf1a75c5"
+    },
+    "\\backend\\app\\db\\session.py": {
+      "size_bytes": 289,
+      "sha256": "0e22b51465e8e9e86edac74bb8d15d4f402e8b50ce80d04be175ee5b6b7e5970"
+    },
+    "\\backend\\app\\schemas\\__init__.py": {
+      "size_bytes": 60,
+      "sha256": "676842d36b7ef203066ba6423dfb3316c42d79189da2d7e832a173bbeea251c9"
+    },
+    "\\backend\\app\\schemas\\ai_detection.py": {
+      "size_bytes": 21025,
+      "sha256": "4dfc83084c7a6ed7a86d87f671426d3d03811125e354fa927a6591b123ec8711"
+    },
+    "\\backend\\app\\schemas\\analysis.py": {
+      "size_bytes": 9933,
+      "sha256": "9ddaa2b87e0933f6cc8a8930e731dbca7de399b310a7203bc0fb6db9213fbac2"
+    },
+    "\\backend\\app\\schemas\\audio_analysis.py": {
+      "size_bytes": 7302,
+      "sha256": "d1ab32e7d7eb6c73d7195ac264ada818dd18e7b6e223e376b1d67c8bf7bc81cf"
+    },
+    "\\backend\\app\\schemas\\comparison.py": {
+      "size_bytes": 5119,
+      "sha256": "031ba5c4136620143add7a5c03e672c673676d6e534d7dc5a230dabee5fbcc7f"
+    },
+    "\\backend\\app\\schemas\\document_analysis.py": {
+      "size_bytes": 9166,
+      "sha256": "02392dc40b31333d065dc08b6ce47772c6e4d7bd3b1a532cf127d59f2d186e10"
+    },
+    "\\backend\\app\\schemas\\evidence.py": {
+      "size_bytes": 2270,
+      "sha256": "83e68624a71d4c9b709459772e412c8542c42e635ec5ba3cc4baaf7dfda24d0a"
+    },
+    "\\backend\\app\\schemas\\forensic_decision.py": {
+      "size_bytes": 7178,
+      "sha256": "83ee80f3e6f0f1983db624f3c69c513ff04ecade0d80c8e2a35462ef1ae0b25d"
+    },
+    "\\backend\\app\\schemas\\history.py": {
+      "size_bytes": 6085,
+      "sha256": "2e534b1823531512eb8468dc7c795d6df39df9a2abbb47a2dd53848bd72c4c2e"
+    },
+    "\\backend\\app\\schemas\\media.py": {
+      "size_bytes": 5187,
+      "sha256": "b4dfc746edc95a6da1b123ca9dd17afb7d5f4f376017cb78d58dd4936d41338e"
+    },
+    "\\backend\\app\\schemas\\report.py": {
+      "size_bytes": 10562,
+      "sha256": "a681dcefcebf6101ed8414f6fb7f2388f509348ff777a1cab99f5d449539f431"
+    },
+    "\\backend\\app\\schemas\\reproducibility.py": {
+      "size_bytes": 10994,
+      "sha256": "a74797dc9315f3c90052eff02367807d36b4291dabd84e0deb1b41c150c9c3d0"
+    },
+    "\\backend\\app\\schemas\\system.py": {
+      "size_bytes": 477,
+      "sha256": "b5da20971339f95943f0c7b6815004d496a5d4ab4cae7aeb2b8b4eac3ff60ce1"
+    },
+    "\\backend\\app\\schemas\\video_analysis.py": {
+      "size_bytes": 10504,
+      "sha256": "8564c423357873107ebdb3c1f3e7b0e761db393fb76417fe8d3c69bd848e83c2"
+    },
+    "\\backend\\app\\services\\__init__.py": {
+      "size_bytes": 48,
+      "sha256": "8279843a32712577905657b25018aed651192cb130064eccdd2e56907d777c6b"
+    },
+    "\\backend\\app\\services\\media_service.py": {
+      "size_bytes": 10979,
+      "sha256": "7d29195110783fe910320f0f5fd21b8572a1c3eff57c023f3f33f2f5c61538f5"
+    },
+    "\\backend\\app\\services\\system_service.py": {
+      "size_bytes": 761,
+      "sha256": "0f89a84f0210830fc055cbfab524c1e15944d0b4e5660bccb83a148b46887f6e"
+    },
+    "\\backend\\app\\services\\analysis\\__init__.py": {
+      "size_bytes": 42,
+      "sha256": "a2e5024bb82923fcaabc2fb958c524e7be0fdf028e47b3d74f30722043fd3ad6"
+    },
+    "\\backend\\app\\services\\analysis\\audio_analysis_service.py": {
+      "size_bytes": 35910,
+      "sha256": "9b9193511670a14222860f2fe9c55d5471c8e9e3590ebaf5c286d7319848bc61"
+    },
+    "\\backend\\app\\services\\analysis\\document_analysis_service.py": {
+      "size_bytes": 48174,
+      "sha256": "81d2efeaf1527050171d4c7dfc3d18d8ca38a0ba89fa0c998be59172c2677902"
+    },
+    "\\backend\\app\\services\\analysis\\image_ai_detection_service.py": {
+      "size_bytes": 35129,
+      "sha256": "7eb4a7bdafd56ce957384b5a763531fc7497904626ba0538e78b7e6effdc8462"
+    },
+    "\\backend\\app\\services\\analysis\\image_analysis_service.py": {
+      "size_bytes": 12640,
+      "sha256": "be08677d4f7efbe0adec96fba9c0018080b599066a76cf7ae3dccd2917d58b2f"
+    },
+    "\\backend\\app\\services\\analysis\\image_detection_service.py": {
+      "size_bytes": 23841,
+      "sha256": "5129cd20fff4a1915f52c69b441b00f11d3c4bd692e49623bf1553fbb49187f8"
+    },
+    "\\backend\\app\\services\\analysis\\image_localization_service.py": {
+      "size_bytes": 19853,
+      "sha256": "07498778d80193d2860fc7862015563ed5841099a6151592c4f1bdfe61e5dd0d"
+    },
+    "\\backend\\app\\services\\analysis\\localization_visualizer.py": {
+      "size_bytes": 3529,
+      "sha256": "396e70d59a4c07aabb149e17a5962a94d31226e3222848822076e2ba87a76f95"
+    },
+    "\\backend\\app\\services\\analysis\\video_ai_detection_service.py": {
+      "size_bytes": 28103,
+      "sha256": "eee5eb0cf378e06807c2613d2fae514e03f57993a52cd11ff17d12bbb5618500"
+    },
+    "\\backend\\app\\services\\analysis\\video_analysis_service.py": {
+      "size_bytes": 36284,
+      "sha256": "8f37254d18c27a9dfad9608e5fe4b67aa0dfe68ffd12aec7043168e2fb6196cd"
+    },
+    "\\backend\\app\\services\\comparison\\__init__.py": {
+      "size_bytes": 60,
+      "sha256": "a7825c6a9050e06be9a994bbe096d54b382cfd998fffc027ef5065a825d0dcdd"
+    },
+    "\\backend\\app\\services\\comparison\\image_comparison_service.py": {
+      "size_bytes": 23684,
+      "sha256": "6ac4499e659cf52c9e81ea000fb757757c640a1b80cd6bf39b14ca55adad8e3b"
+    },
+    "\\backend\\app\\services\\evidence\\__init__.py": {
+      "size_bytes": 52,
+      "sha256": "b89c2d9dcc5e0996653de4087258f74e81a1244962bcf4b034ff05cf43a41236"
+    },
+    "\\backend\\app\\services\\evidence\\evidence_service.py": {
+      "size_bytes": 26558,
+      "sha256": "92c41cbae4e8207e400e983773aa3187b2e97c3fba70bb6df0e5702b92caeedc"
+    },
+    "\\backend\\app\\services\\evidence\\forensic_decision_service.py": {
+      "size_bytes": 81344,
+      "sha256": "8d44bbe57733732907cca531f132c8b70369f4fa10e4bbcd7031171943df53b6"
+    },
+    "\\backend\\app\\services\\evidence\\reproducibility_service.py": {
+      "size_bytes": 57494,
+      "sha256": "1c9a683bda1757801458918f772d3dd3b865bc7484c65d7cadcdb5482eed7289"
+    },
+    "\\backend\\app\\services\\history\\__init__.py": {
+      "size_bytes": 69,
+      "sha256": "766029634450006c6683e8b0cee648296edb8b188b001d5cde2696cde8cd0326"
+    },
+    "\\backend\\app\\services\\history\\history_service.py": {
+      "size_bytes": 35771,
+      "sha256": "d8efb4e67a4ee28e098b5d3614eb7d50d12f9a442688de3d2b7d09064ccac87c"
+    },
+    "\\backend\\app\\services\\reporting\\__init__.py": {
+      "size_bytes": 51,
+      "sha256": "34f50f689b4629578befd0f911d2412a2024b678d586673fe192c4ec650b5cab"
+    },
+    "\\backend\\app\\services\\reporting\\pdf_report_service.py": {
+      "size_bytes": 32002,
+      "sha256": "a601a01d1875ac48c920ba04a8c5bbd382fc78da7912175ebbb49202b444b3fa"
+    },
+    "\\backend\\app\\services\\reporting\\report_service.py": {
+      "size_bytes": 24327,
+      "sha256": "1a23e9503cb514ac14956fe8011fe9443bd4a2d28cd4ffb85571e2bc1c74dd5f"
+    },
+    "\\backend\\scripts\\setup_ai_image_detector.py": {
+      "size_bytes": 34099,
+      "sha256": "f375c847402bab29846ae932b80e48e531c33aa0d3bdce998efd432158a1a81c"
+    },
+    "\\backend\\scripts\\setup_ai_video_detector.py": {
+      "size_bytes": 3514,
+      "sha256": "c8198e9919bc5eaf652b354e0a5429422169112993171234bb8d873ecba47cdd"
+    },
+    "\\backend\\scripts\\test_ai_detector_transformation_robustness.py": {
+      "size_bytes": 34335,
+      "sha256": "fb32e9321017ac10e4ed56efd7ff05f02776fd54bce99c43191e40241da42cc5"
+    },
+    "\\backend\\scripts\\validate_ai_image_detector.py": {
+      "size_bytes": 64355,
+      "sha256": "04ee113ee4dfda37acfd90605682ff0acafe6c0f50375ad2b6b100253f86df56"
+    },
+    "\\backend\\scripts\\validate_ai_video_detector.py": {
+      "size_bytes": 18824,
+      "sha256": "94010b1fa21ca74e07f531fe2fb953518a0cd65a7cd92650f230b0698a5d160e"
+    },
+    "\\backend\\scripts\\validate_expanded_video_detectors.py": {
+      "size_bytes": 35683,
+      "sha256": "0cfdd6cdae0ce27264faf13d1705e3d8c63d00907ed025877bffb456fccac3bf"
+    },
+    "\\backend\\scripts\\validate_realforensics.py": {
+      "size_bytes": 26007,
+      "sha256": "fd6ab27a883fc3a75a459325489ff09bd10f3d23f33244086472066d842aab6f"
+    },
+    "\\backend\\scripts\\verify_ai_image_detector.py": {
+      "size_bytes": 1077,
+      "sha256": "9d58f2464e6aa8a3b14002b25231f42d66bce891cf2bfa5291c8289c731f071b"
+    },
+    "\\backend\\tests\\__init__.py": {
+      "size_bytes": 39,
+      "sha256": "5698d81280c5341a69d6dbe2876d197ba0717e40fc0aae2dafd8674fa678168c"
+    },
+    "\\backend\\tests\\fan_arch.py": {
+      "size_bytes": 5429,
+      "sha256": "849a3f63c3f89c8789ccf07ad8f9d8f1f6b915dd8ef0d2c3c05c5b58483e4ea7"
+    },
+    "\\backend\\tests\\realforensics_arch.py": {
+      "size_bytes": 9706,
+      "sha256": "4bfc04369949eacfa17b1deb83bd7e03e8f920e8a10c2463ea32c78bd467b812"
+    },
+    "\\backend\\tests\\test_ai_detector_interpretation_hardening.py": {
+      "size_bytes": 16519,
+      "sha256": "aae385efff5f337148a03c75a73e260c440ee19a7329365d7b8b2c5fcc0080fa"
+    },
+    "\\backend\\tests\\test_ai_detector_transformation_robustness.py": {
+      "size_bytes": 9122,
+      "sha256": "d745cbadfdcacbc59686e0e5b84c8c7e28edf10927de3090f0334c7f8e7e7c89"
+    },
+    "\\backend\\tests\\test_ai_detector_validation.py": {
+      "size_bytes": 23307,
+      "sha256": "7b52919dd020393702765109a60a6915e82b8268dcb94a5a6c3ee4ea58b94f79"
+    },
+    "\\backend\\tests\\test_ai_image_detection.py": {
+      "size_bytes": 28760,
+      "sha256": "37de925fcc70dc1995de0e478ccc84aa858dfc54603875fb1a00d8050ad73940"
+    },
+    "\\backend\\tests\\test_ai_video_detector_validation.py": {
+      "size_bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "\\backend\\tests\\test_analysis.py": {
+      "size_bytes": 7339,
+      "sha256": "9f3f7bf529b138cbb82bfb8ba7dd61c88ef9ced2c0f947357d139337b12a1af9"
+    },
+    "\\backend\\tests\\test_audio_analysis.py": {
+      "size_bytes": 12331,
+      "sha256": "9a90f50b6262313b15f04c2958b6151343b4223b2dc04b2d80e422d9c8f39679"
+    },
+    "\\backend\\tests\\test_comparison.py": {
+      "size_bytes": 10842,
+      "sha256": "b87576695034f7952b82aa31d99fe87e9db76c7497667e651ccb04f9c16d51d7"
+    },
+    "\\backend\\tests\\test_detection.py": {
+      "size_bytes": 7771,
+      "sha256": "ebf130d371142870726df1579c2da3d7060f2310dd9f32a66b2a4dc42f895bbf"
+    },
+    "\\backend\\tests\\test_document_analysis.py": {
+      "size_bytes": 15660,
+      "sha256": "61eb37d0c73ff39faddf6525201a051fc5b5955a70881e80006f8f24119bb50a"
+    },
+    "\\backend\\tests\\test_end_to_end.py": {
+      "size_bytes": 9437,
+      "sha256": "e062dd336fe481654f4ea17712fdc8f62c1d0ddd280df4ffd99931930aabf709"
+    },
+    "\\backend\\tests\\test_evidence.py": {
+      "size_bytes": 8521,
+      "sha256": "773ba2199f17436c9aa25961d21ba77f8a3ee30791c938de80ffcad8268c295b"
+    },
+    "\\backend\\tests\\test_forensic_decision_framework.py": {
+      "size_bytes": 29803,
+      "sha256": "0df728b7d991b231377e6b0cafb830af02984ed6f54d33d7f3b96155b0dee2c6"
+    },
+    "\\backend\\tests\\test_forensic_reproducibility_audit.py": {
+      "size_bytes": 18762,
+      "sha256": "188426ee540ba396d576cf23dcbe559517da6598019ece9607e143c38b5fe555"
+    },
+    "\\backend\\tests\\test_health.py": {
+      "size_bytes": 707,
+      "sha256": "54e86fb77b784dbe10ad88db65167a272c35fa85a1115f2fd5b655f551cd3b1b"
+    },
+    "\\backend\\tests\\test_history.py": {
+      "size_bytes": 14505,
+      "sha256": "76be26f55b101a74615712e013993cc1535571b1699a6c1c2ee6c5255cdb6040"
+    },
+    "\\backend\\tests\\test_localization.py": {
+      "size_bytes": 9103,
+      "sha256": "573aa9b97399dcb024108f207c7ab48e5342e408c312f3216998d3821fa200ba"
+    },
+    "\\backend\\tests\\test_media.py": {
+      "size_bytes": 4877,
+      "sha256": "8b2fc3e849b27672fc92fd542fda90f7056fc9cb9212aab470dad22ea1812b61"
+    },
+    "\\backend\\tests\\test_realforensics_validation.py": {
+      "size_bytes": 8381,
+      "sha256": "59753e17dbadccaf5f38c9fd10fcd0ad5cfdf4c5e8490a39a233fd075985c733"
+    },
+    "\\backend\\tests\\test_realforensics_verification.py": {
+      "size_bytes": 5808,
+      "sha256": "89cc2597a27089fdbfa864726ff47f13eab64cf4f42354f5f390ddd77ede69d0"
+    },
+    "\\backend\\tests\\test_release_candidate_audit.py": {
+      "size_bytes": 10063,
+      "sha256": "2e80515d88701d45a63fdf32dce4ca6aba3472a88bdf16ddd56f2df1c1b552c5"
+    },
+    "\\backend\\tests\\test_release_hardening_phase_a.py": {
+      "size_bytes": 9700,
+      "sha256": "d38600625bb3cd636eb7e7e214d052b7f66c0ea692e79e9beb86061f5f9ede4c"
+    },
+    "\\backend\\tests\\test_reports.py": {
+      "size_bytes": 13699,
+      "sha256": "0cd5cd39a7d1d007d21484b07ab4f4283428f05b0834ffe20bfc648e550c089f"
+    },
+    "\\backend\\tests\\test_stage_a3_candidates_documentation.py": {
+      "size_bytes": 4734,
+      "sha256": "a9d675cc65b36d063ef38f04bbfde4f5a7b3d69d109563e44d916905a11ca461"
+    },
+    "\\backend\\tests\\test_video_ai_detection.py": {
+      "size_bytes": 15624,
+      "sha256": "fcff1957f88edd8195a43367b126e665fb9650fb1b5d07fb0098610a5bd8929c"
+    },
+    "\\backend\\tests\\test_video_ai_detector_expanded_validation.py": {
+      "size_bytes": 9853,
+      "sha256": "2182c026fca50004d16e35cf93712243293f4e09ec7644588ee684c83dcdc29e"
+    },
+    "\\backend\\tests\\test_video_analysis.py": {
+      "size_bytes": 10770,
+      "sha256": "40a92823b4aecf18c53577838334994d56d8c179f8720ffac321f66e8fac22f8"
+    },
+    "\\backend\\tests\\test_videomae_equivalence.py": {
+      "size_bytes": 7299,
+      "sha256": "54af80b0e69d8b528cfac8d5b3b4f81b8434c182ef5641251040c82d0a8725fe"
+    },
+    "\\docs\\FINAL_RELEASE_READINESS_v1.0.0.md": {
+      "size_bytes": 7002,
+      "sha256": "d3b988584c60fd0a7c1d3edf85dc349f7bf00887804ecc62a68bc60e74b395f3"
+    },
+    "\\docs\\REALFORENSICS_VALIDATION_A2.2.md": {
+      "size_bytes": 14399,
+      "sha256": "4bf82732d61732bb182c39f8511217ef43fe986c408aca2507c124b6540b12a0"
+    },
+    "\\docs\\REALFORENSICS_VERIFICATION.md": {
+      "size_bytes": 20060,
+      "sha256": "8942eaf0c92551217614d13d718b0fb997ea3137da98d55c9ad627cef89d6357"
+    },
+    "\\docs\\RELEASE_CANDIDATE_AUDIT_v1.0.0.md": {
+      "size_bytes": 14552,
+      "sha256": "bb5760becdb84fbb2fc81d2b04bc80cfdb97ba73ea724b3655a1f769c7e2ce0c"
+    },
+    "\\docs\\RELEASE_MANIFEST_v1.0.0.json": {
+      "size_bytes": 5280,
+      "sha256": "c450ca42566765c31e363908859d75883fbb7a31f62c0c9b22ffe9250fd51a9f"
+    },
+    "\\docs\\RELEASE_v1.0.0.md": {
+      "size_bytes": 7345,
+      "sha256": "09d7e7a1f9da1d04ed504397e2fd2586eb2f2fcdef5974d1be73f6ff1e2808fa"
+    },
+    "\\docs\\VIDEO_AI_DETECTOR_CROSS_DATASET_A3_CANDIDATES.md": {
+      "size_bytes": 26992,
+      "sha256": "ea4aa4c455a08d46ec5df1b394c6fb52bcfdfed9266812ad029f1bfe08a2194f"
+    },
+    "\\docs\\VIDEO_AI_DETECTOR_VALIDATION_A2.3.md": {
+      "size_bytes": 21986,
+      "sha256": "a7c18771a9ad7913424d3af29500f1ee74e5fdb9b379ef412f4201ba646634d4"
+    },
+    "\\frontend\\Dockerfile": {
+      "size_bytes": 359,
+      "sha256": "f6957ae7c1ad20a3ccdd99ab6c7102f8a6808007fa01d5768958c33b207f5305"
+    },
+    "\\frontend\\index.html": {
+      "size_bytes": 323,
+      "sha256": "b33f48665fff373fc5a73221eefce15e77283da4fa58b754d5d3fffb2663df73"
+    },
+    "\\frontend\\package-lock.json": {
+      "size_bytes": 56676,
+      "sha256": "5b25e630585d9d58b86249fca5d5fc0fbe6bdd048ccf5ad3e43214729fa21606"
+    },
+    "\\frontend\\package.json": {
+      "size_bytes": 356,
+      "sha256": "2e96b2617c9070c2b8b78d0abe54f5b340322e95ca83db32e1b3f5f082cecafb"
+    },
+    "\\frontend\\vite.config.js": {
+      "size_bytes": 315,
+      "sha256": "53b3140171ac92915773d57456cd0b5bc0a49c7216278541e0fb212c97924125"
+    },
+    "\\frontend\\src\\App.css": {
+      "size_bytes": 12265,
+      "sha256": "6c231883dc37a6f69b9e1fc2e1d0998fdff059f462dc8ede8fcc22b693a84926"
+    },
+    "\\frontend\\src\\App.jsx": {
+      "size_bytes": 3470,
+      "sha256": "eac9cc71f60ed87e5d7d45d8cbab9e1274edfa80f2d96a3c3aa49e6f5efa5026"
+    },
+    "\\frontend\\src\\index.css": {
+      "size_bytes": 288,
+      "sha256": "dd9ff4256561f2c94e2e37e65881d28b1c0e081c120c3abacd0b115dcb85675f"
+    },
+    "\\frontend\\src\\main.jsx": {
+      "size_bytes": 239,
+      "sha256": "cac5ad762514c7db1355aaabe99b0495ebe4a31fcbc89c153b352dc882cc94ea"
+    },
+    "\\frontend\\src\\components\\DashboardPlaceholder.jsx": {
+      "size_bytes": 1702,
+      "sha256": "6f012596743219eab95bcb822d93fdd097ccdfcde0e0bc96cecc4a4e001cbebf"
+    },
+    "\\frontend\\src\\components\\Header.jsx": {
+      "size_bytes": 737,
+      "sha256": "4eff379a6f98ecc93d6b3c37b68b20a56858f11afbb73bdf9d5997e2fd9924b4"
+    },
+    "\\frontend\\src\\components\\MediaUpload.jsx": {
+      "size_bytes": 132964,
+      "sha256": "76e1aee104c577839e123b2e756f7caf1362b6c2e014b2bc6d7f3da0fef0dcb0"
+    },
+    "\\frontend\\src\\components\\ResultsPlaceholder.jsx": {
+      "size_bytes": 2339,
+      "sha256": "1f13e16e75377ed67ce2677a343ecc093d394370c4d8d629a2df7278dec6c762"
+    },
+    "\\frontend\\src\\services\\api.js": {
+      "size_bytes": 10671,
+      "sha256": "3d137eb6931bf77ff81e6200ae85401f6e560f256423bf7188b74c976035ab95"
+    },
+    "\\frontend\\src\\services\\audioAnalysisService.js": {
+      "size_bytes": 877,
+      "sha256": "2c30eb78600f7f0a53d20408aab335e31bd3993ed0dbccea02195168c37f4c95"
+    },
+    "\\frontend\\src\\services\\documentAnalysisService.js": {
+      "size_bytes": 860,
+      "sha256": "1f1e53a8bd7d45ea0ee1d1625893a52b22f09535ae80fccf32741a789c2abeb8"
+    },
+    "\\frontend\\src\\services\\videoAnalysisService.js": {
+      "size_bytes": 868,
+      "sha256": "4f716a722ff48b6985d04bb84c4360a17935eb5c7006eba0ce1aa618a250e9e3"
+    }
+  }
+}

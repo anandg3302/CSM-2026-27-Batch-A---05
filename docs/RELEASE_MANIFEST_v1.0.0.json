@@ -1,0 +1,114 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "application_name": "MediaTrace",
+  "application_version": "1.0.0",
+  "release_candidate_reference": "v1.0.0-rc1",
+  "release_status": "packaging_verified",
+  "generated_at": "2026-09-30T14:10:00Z",
+  "repository_audit_summary": {
+    "version_consistency": "verified",
+    "credential_scan": "passed_zero_secrets",
+    "private_data_boundary": "verified_gitignored",
+    "evidence_chain_integrity": "verified_four_modalities",
+    "reproducibility": "verified_deterministic",
+    "privacy_enforcement": "verified_raw_gps_redacted",
+    "security_boundaries": "verified_traversal_and_resource_bounds"
+  },
+  "backend_test_result": {
+    "total": 122,
+    "passed": 122,
+    "failed": 0,
+    "skipped": 0,
+    "errors": 0,
+    "warnings": 6,
+    "warning_details": "Non-breaking upstream deprecation notices (Starlette and Pillow)",
+    "execution_time_seconds": 152.95
+  },
+  "frontend_build_result": {
+    "status": "passed",
+    "bundler": "vite v5.4.21",
+    "build_duration_seconds": 1.40,
+    "bundle_files": [
+      "dist/index.html (0.42 kB)",
+      "dist/assets/index-CSpvbFNw.css (10.07 kB)",
+      "dist/assets/index-BTOwEZIR.js (238.97 kB)"
+    ],
+    "errors": 0
+  },
+  "health_check_result": {
+    "status_code": 200,
+    "payload": {
+      "status": "ok",
+      "service": "MediaTrace API",
+      "version": "1.0.0"
+    }
+  },
+  "docker_runtime_status": {
+    "dockerfile_backend": "statically_verified",
+    "dockerfile_frontend": "statically_verified",
+    "docker_compose": "statically_verified",
+    "api_base_url_alignment": "http://localhost:8000/api",
+    "live_runtime_verified": false,
+    "reason": "Docker CLI/Desktop not installed on audit host environment"
+  },
+  "cross_dataset_validation_status": {
+    "stage": "Stage A.3",
+    "status": "deferred",
+    "target_dataset": "DeepFake Detection Challenge (DFDC)",
+    "reason": "Official DFDC dataset requires interactive user agreement to competition rules in browser; headless API cannot bypass access control"
+  },
+  "model_artifact_integrity": {
+    "image_ai_detector": {
+      "model_id": "umm-maybe/AI-image-detector",
+      "pinned_revision": "c7e223baf11bc40528af364ba7bdea030ef42f9e",
+      "architecture": "SwinForImageClassification",
+      "pytorch_weights_sha256": "f4c14ed23eb1d65b1c6ca7b163f8f91bebcf3a4d8c275296c850c9f1bbd01daf",
+      "onnx_export_sha256": "693911a555891bac487c9e24daf4f2adcef258eaa7304d8d344ecc96b9af7b2e",
+      "score_semantics": "uncalibrated_model_score",
+      "decision_rule": "model_class_selection",
+      "threshold": null
+    },
+    "videomae_deepfake_detector": {
+      "model_id": "Vansh180/VideoMae-ffc23-deepfake-detector",
+      "pinned_revision": "ea26518b527d938d66e568c52bcf1c19a86cf295",
+      "architecture": "VideoMAEForVideoClassification",
+      "safetensors_sha256": "293c668a5d3289d3162902d8cac6687cd11551cf2358768bad126de32b6d7f29",
+      "score_semantics": "uncalibrated_model_score",
+      "decision_rule": "model_class_selection",
+      "threshold": null,
+      "strength": "informational"
+    },
+    "realforensics_detector": {
+      "checkpoint_file": "realforensics_ff.pth",
+      "sha256": "843b86f29fc98c67132a6f98180a35bfc617882a32642b8b80d571944c2e032d",
+      "landmark_checkpoint": "2DFAN4-11f355bf06.pth.tar",
+      "landmark_sha256": "11f355bf0693120222f5955ce3f9dc8fb5763ebb30a47d7906e509490d32e4aa",
+      "mean_face_template": "20words_mean_face.npy",
+      "mean_face_sha256": "dbf68b2044171e1160716df7c53e8bbfaa0ee8c61fb41171d04cb6092bb81422",
+      "score_semantics": "uncalibrated_logit",
+      "decision_rule": "uncalibrated_research_signal"
+    }
+  },
+  "a2_3_validation_dataset_integrity": {
+    "dataset": "Small-scale Deepfake Forgery Video Dataset (SDFVD)",
+    "sample_count": 26,
+    "human_count": 10,
+    "manipulated_count": 10,
+    "derivative_count": 6,
+    "manifest_sha256": "531111d2fd2f80fb14620f44391eef95bb8dfca7c6314f3299723cf2b5a195aa",
+    "results_sha256": "5a80598841c023cf809eeea1602492f2545084177cbaad3dd41cc5d3eb97c11f",
+    "summary_sha256": "e00ac4c074df0ff4c1b69fe0e964177c1328906649774618a82bc8db1fe90367",
+    "status": "frozen_intact"
+  },
+  "known_limitations": [
+    "AI detectors (image and video) output uncalibrated scores, not statistical probabilities.",
+    "VideoMAE and RealForensics are experimental auxiliary signals; cross-dataset generalization has not been established.",
+    "Stage A.3 independent cross-dataset validation is currently deferred pending interactive Kaggle rules acceptance.",
+    "SDFVD validation cohort consists of 26 samples and represents out-of-domain web compression relative to FaceForensics++ training data.",
+    "Image AI detector was trained on 2022-era artistic generators and is subject to domain shift under recompression or modern diffusion pipelines.",
+    "Classical forensic anomalies (ELA, quantization, audio discontinuities) are supporting indicators and not standalone proof of manipulation.",
+    "Reconstructed edit histories represent evidence-ordered hypothetical sequences, not proven real-world chronological facts.",
+    "Docker runtime deployment was not verified locally because Docker CLI is not installed on the audit host."
+  ],
+  "release_blockers": []
+}

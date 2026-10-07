@@ -1,0 +1,324 @@
+{
+  "report_type": "descriptive validation results",
+  "generated_at": "2026-09-30T14:04:33.122203+00:00",
+  "dataset_complete": false,
+  "model_integrity": {
+    "model_repository": "umm-maybe/AI-image-detector",
+    "pinned_revision": "c7e223baf11bc40528af364ba7bdea030ef42f9e",
+    "architecture": "SwinForImageClassification",
+    "license": "Creative Commons Attribution-NoDerivatives 4.0 International (CC BY-ND 4.0)",
+    "onnx_is_upstream": false,
+    "pytorch_model_sha256": "f4c14ed23eb1d65b1c6ca7b163f8f91bebcf3a4d8c275296c850c9f1bbd01daf",
+    "model_onnx_sha256": "693911a555891bac487c9e24daf4f2adcef258eaa7304d8d344ecc96b9af7b2e",
+    "onnx_input_signature": {
+      "name": "pixel_values",
+      "shape": [
+        "batch_size",
+        3,
+        224,
+        224
+      ],
+      "dtype": "tensor(float)"
+    },
+    "onnx_output_signature": {
+      "name": "logits",
+      "shape": [
+        "batch_size",
+        2
+      ],
+      "dtype": "tensor(float)"
+    },
+    "class_mapping": {
+      "0": "artificial",
+      "1": "human"
+    },
+    "preprocessing": {
+      "image_mode": "RGB",
+      "resize": "224x224",
+      "resample": "BICUBIC (resample=3)",
+      "value_scaling": "[0, 255] -> [0.0, 1.0]",
+      "normalization_mean": [
+        0.485,
+        0.456,
+        0.406
+      ],
+      "normalization_std": [
+        0.229,
+        0.224,
+        0.225
+      ],
+      "tensor_layout": "NCHW float32"
+    },
+    "verified_at": "2026-09-30T14:04:29.082229+00:00"
+  },
+  "stratified_dataset_summary": {
+    "gps_coordinates_exposed": false,
+    "unique_source_sha256_count": 4,
+    "total_source_sample_count": 4,
+    "total_transformed_sample_count": 1,
+    "human": {
+      "count": 1,
+      "known_camera_source": 1,
+      "unknown_source": 0,
+      "formats": {
+        "JPEG": 1
+      },
+      "dimensions": {
+        "731x987": 1
+      },
+      "known_devices": {
+        "realme 10 Pro 5G (RMX3660)": 1
+      },
+      "provenance_status_counts": {
+        "documented_camera_exif": 1
+      }
+    },
+    "ai_generated": {
+      "count": 3,
+      "known_generator": 0,
+      "unknown_generator": 3,
+      "formats": {
+        "JPEG": 3
+      },
+      "dimensions": {
+        "517x415": 1,
+        "192x152": 1,
+        "510x408": 1
+      },
+      "generators": {
+        "unknown": 3
+      },
+      "provenance_status_counts": {
+        "developer_supplied_ai_unknown_generator": 3
+      }
+    },
+    "transformed_separate_experiment": {
+      "count": 1,
+      "counted_as_independent_source": false,
+      "formats": {
+        "JPEG": 1
+      },
+      "dimensions": {
+        "512x691": 1
+      },
+      "parent_sample_ids": [
+        "human_001"
+      ]
+    }
+  },
+  "sample_availability": {
+    "human_available": 1,
+    "human_target": 10,
+    "ai_generated_available": 3,
+    "ai_generated_target": 10,
+    "transformed_available": 1,
+    "transformed_target": 1,
+    "incomplete_categories": [
+      "human",
+      "ai_generated"
+    ],
+    "availability_notice": "Categories below target sample count (human, ai_generated) are reported descriptively as incomplete without fabricating or downloading synthetic images."
+  },
+  "category_statistics": {
+    "human": {
+      "known_category": "human",
+      "sample_count": 1,
+      "target_sample_count": 10,
+      "category_complete": false,
+      "selected_as_artificial_count": 0,
+      "selected_as_human_count": 1,
+      "artificial_score_min": 0.2974,
+      "artificial_score_max": 0.2974,
+      "artificial_score_mean": 0.2974,
+      "artificial_score_median": 0.2974,
+      "human_score_min": 0.7026,
+      "human_score_max": 0.7026,
+      "human_score_mean": 0.7026,
+      "human_score_median": 0.7026
+    },
+    "ai_generated": {
+      "known_category": "ai_generated",
+      "sample_count": 3,
+      "target_sample_count": 10,
+      "category_complete": false,
+      "selected_as_artificial_count": 2,
+      "selected_as_human_count": 1,
+      "artificial_score_min": 0.2736,
+      "artificial_score_max": 0.977,
+      "artificial_score_mean": 0.6665,
+      "artificial_score_median": 0.749,
+      "human_score_min": 0.023,
+      "human_score_max": 0.7264,
+      "human_score_mean": 0.3335,
+      "human_score_median": 0.251
+    },
+    "transformed": {
+      "known_category": "transformed",
+      "sample_count": 1,
+      "target_sample_count": 1,
+      "category_complete": true,
+      "selected_as_artificial_count": 0,
+      "selected_as_human_count": 1,
+      "artificial_score_min": 0.0785,
+      "artificial_score_max": 0.0785,
+      "artificial_score_mean": 0.0785,
+      "artificial_score_median": 0.0785,
+      "human_score_min": 0.9215,
+      "human_score_max": 0.9215,
+      "human_score_mean": 0.9215,
+      "human_score_median": 0.9215
+    }
+  },
+  "confusion_count_table": {
+    "label": "controlled dataset descriptive counts",
+    "table_type": "descriptive_confusion_counts",
+    "excluded_categories": [
+      "transformed"
+    ],
+    "known_human_selected_human": 1,
+    "known_human_selected_artificial": 0,
+    "known_ai_selected_artificial": 2,
+    "known_ai_selected_human": 1,
+    "rows": {
+      "known_human": {
+        "predicted_artificial": 0,
+        "predicted_human": 1
+      },
+      "known_ai_generated": {
+        "predicted_artificial": 2,
+        "predicted_human": 1
+      }
+    }
+  },
+  "transformed_category_results": {
+    "included_in_confusion_counts": false,
+    "statistics": {
+      "known_category": "transformed",
+      "sample_count": 1,
+      "target_sample_count": 1,
+      "category_complete": true,
+      "selected_as_artificial_count": 0,
+      "selected_as_human_count": 1,
+      "artificial_score_min": 0.0785,
+      "artificial_score_max": 0.0785,
+      "artificial_score_mean": 0.0785,
+      "artificial_score_median": 0.0785,
+      "human_score_min": 0.9215,
+      "human_score_max": 0.9215,
+      "human_score_mean": 0.9215,
+      "human_score_median": 0.9215
+    },
+    "samples": [
+      {
+        "sample_id": "transformed_001",
+        "validation_id": "transformed_001",
+        "filename": "anand_pic_q60_512x691.jpg",
+        "original_category": "human",
+        "parent_sample_id": "human_001",
+        "parent_sha256": "fd98d202253fe5e7f643384687bf4c96b78f4c67b1a931023f342538508c0f2b",
+        "transformations": [
+          "resize_512x691_bicubic",
+          "jpeg_recompress_q60"
+        ],
+        "selected_class": "human",
+        "artificial_score": 0.0785,
+        "human_score": 0.9215,
+        "category_disagreement": false
+      }
+    ]
+  },
+  "category_disagreements": {
+    "count": 1,
+    "known_human_selected_artificial": [],
+    "known_ai_selected_human": [
+      {
+        "sample_id": "ai_003",
+        "validation_id": "ai_003",
+        "filename": "download.jpeg",
+        "known_category": "ai_generated",
+        "selected_class": "human",
+        "artificial_score": 0.2736,
+        "human_score": 0.7264,
+        "image_dimensions": "510x408",
+        "format": "JPEG",
+        "provenance_information": {
+          "source_description": "Known AI-generated image supplied by developer under datasets/ai_detector_validation/ai_generated/solar/",
+          "generator_or_camera_if_known": "unknown",
+          "provenance_status": "developer_supplied_ai_unknown_generator"
+        },
+        "transformation_information": {
+          "transformations": [],
+          "parent_sample_id": null,
+          "parent_sha256": null
+        },
+        "observation": "model/category disagreement observed",
+        "cross_analysis_note": "Additional forensic signals were observed; this experiment does not establish whether those signals represent manipulation."
+      }
+    ],
+    "items": [
+      {
+        "sample_id": "ai_003",
+        "validation_id": "ai_003",
+        "filename": "download.jpeg",
+        "known_category": "ai_generated",
+        "selected_class": "human",
+        "artificial_score": 0.2736,
+        "human_score": 0.7264,
+        "image_dimensions": "510x408",
+        "format": "JPEG",
+        "provenance_information": {
+          "source_description": "Known AI-generated image supplied by developer under datasets/ai_detector_validation/ai_generated/solar/",
+          "generator_or_camera_if_known": "unknown",
+          "provenance_status": "developer_supplied_ai_unknown_generator"
+        },
+        "transformation_information": {
+          "transformations": [],
+          "parent_sample_id": null,
+          "parent_sha256": null
+        },
+        "observation": "model/category disagreement observed",
+        "cross_analysis_note": "Additional forensic signals were observed; this experiment does not establish whether those signals represent manipulation."
+      }
+    ]
+  },
+  "dataset_quality_warnings": [
+    {
+      "code": "human_count_below_target",
+      "severity": "informational",
+      "message": "Known-human source sample count (1) is below the target of 10; dataset is marked incomplete and does not support statistical generalizations."
+    },
+    {
+      "code": "ai_count_below_target",
+      "severity": "informational",
+      "message": "Known-AI source sample count (3) is below the target of 10; dataset is marked incomplete and does not support statistical generalizations."
+    },
+    {
+      "code": "limited_known_generator_diversity",
+      "severity": "informational",
+      "message": "Only 0 distinct known AI generator(s) explicitly identified across 3 AI sample(s); generator model diversity is limited."
+    },
+    {
+      "code": "single_human_source_device",
+      "severity": "informational",
+      "message": "Only 1 human camera/device source(s) represented (['realme 10 Pro 5G (RMX3660)'])."
+    },
+    {
+      "code": "unknown_generator_or_camera_provenance",
+      "severity": "informational",
+      "message": "3 of 4 source sample(s) have 'unknown' specific generator or camera model provenance."
+    },
+    {
+      "code": "dataset_dominated_by_single_source",
+      "severity": "informational",
+      "message": "Source dataset is dominated by a single source description (3/4 samples: 'Known AI-generated image supplied by developer under datasets/ai_detector_validation/ai_generated/solar/')."
+    }
+  ],
+  "limitations": [
+    "This is a controlled descriptive engineering validation harness, not a scientific or forensic benchmark.",
+    "Known categories come exclusively from manifest.json and are never inferred from model predictions, EXIF metadata, or visual heuristics.",
+    "Model outputs are uncalibrated model-derived scores (uncalibrated_model_score) with decision_rule='model_class_selection' and threshold=null.",
+    "This small convenience sample is not a representative statistical benchmark; results must not be generalized to arbitrary internet imagery or newer generators.",
+    "Transformed images are reported separately and excluded from the source-level human-vs-AI descriptive confusion counts.",
+    "No authenticity, provenance, benchmark accuracy, or manipulation probability conclusion is generated from detector scores or classical forensic observations."
+  ]
+}

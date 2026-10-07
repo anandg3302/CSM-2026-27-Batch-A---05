@@ -1,0 +1,70 @@
+{
+  "validation_timestamp_utc": "2026-09-30T11:23:55.297656+00:00",
+  "model": {
+    "name": "RealForensics",
+    "repository": "https://github.com/ahaliassos/RealForensics",
+    "revision": "a53e849407d2fd5be0f0a7eb3df7d1a846b5b803",
+    "checkpoint": "realforensics_ff.pth",
+    "checkpoint_sha256": "843b86f29fc98c67132a6f98180a35bfc617882a32642b8b80d571944c2e032d",
+    "architecture": "csn_r101 + MeanLinear (norm_linear=True, scale=64.0)",
+    "score_type": "model_score_uncalibrated",
+    "auxiliary_models": {
+      "landmark_model": "2DFAN-4 (adrianbulat/face-alignment)",
+      "landmark_model_sha256": "11f355bf0693120222f5955ce3f9dc8fb5763ebb30a47d7906e509490d32e4aa",
+      "mean_face_template": "20words_mean_face.npy",
+      "mean_face_sha256": "dbf68b2044171e1160716df7c53e8bbfaa0ee8c61fb41171d04cb6092bb81422"
+    }
+  },
+  "dataset": {
+    "name": "SDFVD (Small-scale Deepfake Forgery Video Dataset)",
+    "manifest_version": "1.0.0",
+    "role": "controlled_out_of_domain_validation",
+    "total_samples": 7,
+    "category_counts": {
+      "human": 3,
+      "manipulated": 3,
+      "transformed": 1
+    },
+    "evaluated_count": 7,
+    "unavailable_count": 0
+  },
+  "descriptive_observations": {
+    "known_human_observations": {
+      "total": 3,
+      "agreements (selected_human)": 2,
+      "disagreements (selected_manipulated)": 1
+    },
+    "known_manipulated_observations": {
+      "total": 3,
+      "agreements (selected_manipulated)": 2,
+      "disagreements (selected_human)": 1
+    },
+    "transformation_robustness": {
+      "original_sample": "v1.mp4",
+      "original_logit": -4.134709,
+      "transformed_sample": "v1_resize50.mp4",
+      "transformed_logit": -4.761127,
+      "score_delta": -0.626418,
+      "class_preserved": true
+    },
+    "score_distributions": {
+      "min_logit": -4.761127,
+      "max_logit": 5.38255,
+      "mean_logit": -0.521467,
+      "median_logit": -0.85732
+    },
+    "videomae_comparison": {
+      "both_agree_with_known_category": 2,
+      "both_disagree_with_known_category": 1,
+      "models_disagree": 3,
+      "evaluated_derivative": 1
+    }
+  },
+  "limitations": [
+    "Controlled descriptive engineering validation on a small out-of-domain sample; NOT a benchmark.",
+    "Raw model scores are uncalibrated logits, NOT probabilities or confidence levels.",
+    "RealForensics was trained on FaceForensics++ C23 and evaluated on SDFVD (Pexels / Remaker AI).",
+    "Model agreement does not prove authenticity or manipulation; disagreement does not prove failure.",
+    "Precludes real-world generalization claims."
+  ]
+}

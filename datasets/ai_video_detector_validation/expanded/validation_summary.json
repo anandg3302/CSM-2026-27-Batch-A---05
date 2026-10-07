@@ -1,0 +1,178 @@
+{
+  "validation_timestamp_utc": "2026-09-30T12:09:51.725155+00:00",
+  "stage": "A.2.3",
+  "dataset": {
+    "name": "SDFVD (Small-scale Deepfake Forgery Video Dataset) \u2014 Expanded Controlled Cohort",
+    "manifest_version": "2.0.0",
+    "role": "controlled_out_of_domain_validation",
+    "total_samples": 26,
+    "category_counts": {
+      "human": 10,
+      "manipulated": 10,
+      "transformed": 6
+    },
+    "evaluated_count": 26,
+    "unavailable_count": 0
+  },
+  "detectors": [
+    {
+      "name": "VideoMAE",
+      "repository": "Vansh180/VideoMae-ffc23-deepfake-detector",
+      "revision": "ea26518b527d938d66e568c52bcf1c19a86cf295",
+      "architecture": "VideoMAEForVideoClassification",
+      "safetensors_sha256": "293c668a5d3289d3162902d8cac6687cd11551cf2358768bad126de32b6d7f29",
+      "score_representation": "uncalibrated_probability_fake_class",
+      "decision_rule": "model_class_selection",
+      "observations": {
+        "known_human_total": 10,
+        "known_human_agreed": 0,
+        "known_human_disagreed": 10,
+        "known_manipulated_total": 10,
+        "known_manipulated_agreed": 9,
+        "known_manipulated_disagreed": 1
+      }
+    },
+    {
+      "name": "RealForensics",
+      "repository": "ahaliassos/RealForensics",
+      "revision": "a53e849407d2fd5be0f0a7eb3df7d1a846b5b803",
+      "architecture": "csn_r101 + MeanLinear (norm_linear=True, scale=64.0)",
+      "checkpoint": "realforensics_ff.pth",
+      "checkpoint_sha256": "843b86f29fc98c67132a6f98180a35bfc617882a32642b8b80d571944c2e032d",
+      "score_representation": "uncalibrated_scalar_logit",
+      "decision_rule": "scalar_logit_sign (z > 0 -> manipulated, z <= 0 -> human)",
+      "observations": {
+        "known_human_total": 10,
+        "known_human_agreed": 4,
+        "known_human_disagreed": 6,
+        "known_manipulated_total": 10,
+        "known_manipulated_agreed": 8,
+        "known_manipulated_disagreed": 2
+      }
+    }
+  ],
+  "comparative_observations": {
+    "both_agree_with_known_category": 7,
+    "both_disagree_with_known_category": 6,
+    "models_disagree": 7,
+    "evaluated_derivative": 6,
+    "total_primary_samples": 20
+  },
+  "transformation_sensitivity": [
+    {
+      "derivative_filename": "v1_resize50.mp4",
+      "parent_filename": "v1.mp4",
+      "parent_category": "human",
+      "transformation_type": "spatial_downscale_50pct",
+      "videomae": {
+        "parent_score": 0.748156,
+        "derivative_score": 0.740396,
+        "score_delta": -0.00776,
+        "class_preserved": true
+      },
+      "realforensics": {
+        "parent_logit": -4.134709,
+        "derivative_logit": -4.761127,
+        "logit_delta": -0.626418,
+        "class_preserved": true
+      }
+    },
+    {
+      "derivative_filename": "v1_resize75.mp4",
+      "parent_filename": "v1.mp4",
+      "parent_category": "human",
+      "transformation_type": "spatial_downscale_75pct",
+      "videomae": {
+        "parent_score": 0.748156,
+        "derivative_score": 0.767174,
+        "score_delta": 0.019018,
+        "class_preserved": true
+      },
+      "realforensics": {
+        "parent_logit": -4.134709,
+        "derivative_logit": -5.049084,
+        "logit_delta": -0.914375,
+        "class_preserved": true
+      }
+    },
+    {
+      "derivative_filename": "v2_resize50.mp4",
+      "parent_filename": "v2.mp4",
+      "parent_category": "human",
+      "transformation_type": "spatial_downscale_50pct",
+      "videomae": {
+        "parent_score": 0.859516,
+        "derivative_score": 0.887924,
+        "score_delta": 0.028408,
+        "class_preserved": true
+      },
+      "realforensics": {
+        "parent_logit": 1.244068,
+        "derivative_logit": 2.234217,
+        "logit_delta": 0.990149,
+        "class_preserved": true
+      }
+    },
+    {
+      "derivative_filename": "vs1_resize50.mp4",
+      "parent_filename": "vs1.mp4",
+      "parent_category": "manipulated",
+      "transformation_type": "spatial_downscale_50pct",
+      "videomae": {
+        "parent_score": 0.811546,
+        "derivative_score": 0.823421,
+        "score_delta": 0.011875,
+        "class_preserved": true
+      },
+      "realforensics": {
+        "parent_logit": 1.994186,
+        "derivative_logit": 3.140863,
+        "logit_delta": 1.146677,
+        "class_preserved": true
+      }
+    },
+    {
+      "derivative_filename": "vs1_resize75.mp4",
+      "parent_filename": "vs1.mp4",
+      "parent_category": "manipulated",
+      "transformation_type": "spatial_downscale_75pct",
+      "videomae": {
+        "parent_score": 0.811546,
+        "derivative_score": 0.813023,
+        "score_delta": 0.001477,
+        "class_preserved": true
+      },
+      "realforensics": {
+        "parent_logit": 1.994186,
+        "derivative_logit": 0.429475,
+        "logit_delta": -1.564711,
+        "class_preserved": true
+      }
+    },
+    {
+      "derivative_filename": "vs2_resize50.mp4",
+      "parent_filename": "vs2.mp4",
+      "parent_category": "manipulated",
+      "transformation_type": "spatial_downscale_50pct",
+      "videomae": {
+        "parent_score": 0.898381,
+        "derivative_score": 0.915516,
+        "score_delta": 0.017135,
+        "class_preserved": true
+      },
+      "realforensics": {
+        "parent_logit": 5.38255,
+        "derivative_logit": 1.129035,
+        "logit_delta": -4.253515,
+        "class_preserved": true
+      }
+    }
+  ],
+  "limitations": [
+    "Controlled descriptive engineering validation on a small out-of-domain sample cohort (SDFVD: Pexels / Remaker AI); NOT a benchmark.",
+    "Raw model scores are uncalibrated (uncalibrated probability for VideoMAE, uncalibrated scalar logit for RealForensics), NOT calibrated real-world probabilities.",
+    "Both models were pretrained on FaceForensics++ C23 and evaluated on SDFVD out-of-domain samples.",
+    "Model agreement does not prove authenticity or manipulation; disagreement does not prove failure.",
+    "Precludes real-world generalization claims."
+  ]
+}

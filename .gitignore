@@ -1,0 +1,77 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+.venv/
+venv/
+env/
+.pytest_cache/
+*.egg-info/
+
+# Node / Frontend
+node_modules/
+dist/
+build/
+dist-ssr/
+*.local
+.npm
+
+# Environment variables
+.env
+.env.local
+.env.*.local
+
+# Storage artifacts (keep folder structure via .gitkeep)
+storage/uploads/*
+!storage/uploads/.gitkeep
+storage/results/*
+!storage/results/.gitkeep
+storage/reports/*
+!storage/reports/.gitkeep
+storage/models/*
+!storage/models/.gitkeep
+
+# Validation dataset local images (keep folder structure and manifest)
+datasets/ai_detector_validation/human/*
+!datasets/ai_detector_validation/human/.gitkeep
+datasets/ai_detector_validation/ai_generated/*
+!datasets/ai_detector_validation/ai_generated/.gitkeep
+datasets/ai_detector_validation/transformed/*
+!datasets/ai_detector_validation/transformed/.gitkeep
+datasets/ai_detector_validation/transformation_robustness/*
+!datasets/ai_detector_validation/transformation_robustness/.gitkeep
+
+# Validation dataset local videos (keep folder structure and manifest)
+datasets/ai_video_detector_validation/human/*
+!datasets/ai_video_detector_validation/human/.gitkeep
+datasets/ai_video_detector_validation/manipulated/*
+!datasets/ai_video_detector_validation/manipulated/.gitkeep
+datasets/ai_video_detector_validation/transformed/*
+!datasets/ai_video_detector_validation/transformed/.gitkeep
+
+# Expanded & cross-dataset validation local videos
+datasets/ai_video_detector_validation/expanded/human/*
+!datasets/ai_video_detector_validation/expanded/human/.gitkeep
+datasets/ai_video_detector_validation/expanded/manipulated/*
+!datasets/ai_video_detector_validation/expanded/manipulated/.gitkeep
+datasets/ai_video_detector_validation/expanded/transformed/*
+!datasets/ai_video_detector_validation/expanded/transformed/.gitkeep
+datasets/ai_video_detector_validation/cross_dataset/*/*/*.mp4
+datasets/ai_video_detector_validation/cross_dataset/*/*/*.avi
+datasets/ai_video_detector_validation/cross_dataset/*/*/*.mov
+
+# External dataset staging (keep docs, ignore downloaded video binaries/archives)
+datasets/external_sources/*/*.mp4
+datasets/external_sources/*/*.zip
+datasets/external_sources/*/*.tar*
+datasets/external_sources/*/*.avi
+datasets/external_sources/*/*.mov
+datasets/external_sources/*/*.mkv
+
+# IDE & OS
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db

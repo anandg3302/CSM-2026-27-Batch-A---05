@@ -1,0 +1,80 @@
+{
+  "validation_timestamp": "2026-09-30T09:16:59.555090+00:00",
+  "dataset_name": "MediaTrace Controlled Video AI Detector Validation Dataset",
+  "manifest_version": "1.0.0",
+  "dataset_status": "complete",
+  "target_counts": {
+    "human": 3,
+    "manipulated": 3,
+    "transformed": 1
+  },
+  "observed_counts": {
+    "human": 3,
+    "manipulated": 3,
+    "transformed": 1
+  },
+  "total_samples_evaluated": 7,
+  "model_provenance": {
+    "model_id": "Vansh180/VideoMae-ffc23-deepfake-detector",
+    "model_version": "ea26518b527d938d66e568c52bcf1c19a86cf295",
+    "weights_sha256": "293c668a5d3289d3162902d8cac6687cd11551cf2358768bad126de32b6d7f29",
+    "artifact_hashes": {
+      "model.safetensors": "293c668a5d3289d3162902d8cac6687cd11551cf2358768bad126de32b6d7f29",
+      "config.json": "2c0c32ed575df6c6694ce9cdcc21ce0435bf50d4cf26be76307476b1a53ec2db",
+      "preprocessor_config.json": "4bc9b255ff212041bc28127d4fa0ae1630abca52bb2d882f3e4c0b9e5b763f06"
+    },
+    "model_dir": "D:\\finalPro\\storage\\models\\Vansh180--VideoMae-ffc23-deepfake-detector"
+  },
+  "controlled_validation_observations": {
+    "known_human": {
+      "evaluated": 3,
+      "selected_real": 0,
+      "selected_fake": 3,
+      "not_available": 0
+    },
+    "known_manipulated": {
+      "evaluated": 3,
+      "selected_real": 0,
+      "selected_fake": 3,
+      "not_available": 0
+    },
+    "transformed": {
+      "evaluated": 1,
+      "selected_real": 0,
+      "selected_fake": 1,
+      "not_available": 0
+    }
+  },
+  "disagreements": [
+    {
+      "filename": "v1.mp4",
+      "category": "human",
+      "selected_class": "fake",
+      "real_score": 0.251844,
+      "fake_score": 0.748156
+    },
+    {
+      "filename": "v2.mp4",
+      "category": "human",
+      "selected_class": "fake",
+      "real_score": 0.140484,
+      "fake_score": 0.859516
+    },
+    {
+      "filename": "v3.mp4",
+      "category": "human",
+      "selected_class": "fake",
+      "real_score": 0.078377,
+      "fake_score": 0.921623
+    }
+  ],
+  "disagreement_count": 3,
+  "limitations": [
+    "Controlled descriptive engineering validation harness, not a benchmark or general-world accuracy claim.",
+    "Known categories come exclusively from independent ground-truth documentation; never inferred from detector output.",
+    "Model scores are uncalibrated model-derived scores (score_type='uncalibrated_model_score') with decision_rule='model_class_selection' and threshold=null.",
+    "Detector scope is restricted to facial video deepfakes (FaceForensics++ C23 domain); non-facial content is out of scope.",
+    "Transformed derivatives evaluate transformation sensitivity and are reported separately.",
+    "The detector alone never escalates forensic assessments and does not prove authenticity or provenance."
+  ]
+}
